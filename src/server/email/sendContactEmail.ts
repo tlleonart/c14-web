@@ -9,12 +9,14 @@ interface ContactEmailData {
 
 export async function sendContactEmail(data: ContactEmailData): Promise<boolean> {
   const resendApiKey = process.env.RESEND_API_KEY
-  const contactEmail = process.env.CONTACT_EMAIL
+  const contactEmails = process.env.CONTACT_EMAILS
 
-  if (!resendApiKey || !contactEmail) {
-    console.warn('Email not configured: RESEND_API_KEY or CONTACT_EMAIL missing')
+  if (!resendApiKey || !contactEmails) {
+    console.warn('Email not configured: RESEND_API_KEY or CONTACT_EMAILS missing')
     return false
   }
+
+  const recipients = contactEmails.split(',').map((email) => email.trim())
 
   const serviceLabels: Record<string, string> = {
     automation: 'Automatización con IA',
@@ -33,9 +35,8 @@ export async function sendContactEmail(data: ContactEmailData): Promise<boolean>
         Authorization: `Bearer ${resendApiKey}`,
       },
       body: JSON.stringify({
-        // Use Resend's test sender until a custom domain is verified
-        from: 'Carbono14 <onboarding@resend.dev>',
-        to: contactEmail,
+        from: 'Carbono14 <contacto@carbono-14.net>',
+        to: recipients,
         subject: `Nuevo contacto: ${data.name}`,
         html: `
           <h2>Nuevo mensaje de contacto</h2>
