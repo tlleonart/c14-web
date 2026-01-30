@@ -26,6 +26,8 @@ yarn-error.log*
 .vscode/
 *.swp
 *.swo
+.claude
+ux-inspiration
 
 # OS
 .DS_Store
