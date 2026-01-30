@@ -1,0 +1,64 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="50%" style="stop-color:#111111"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#d94e28;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#d94e28;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d94e28"/>
+      <stop offset="100%" style="stop-color:#ff6b4a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.03">
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-width="1"/>
+    </pattern>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+  </g>
+
+  <!-- Glow effect -->
+  <ellipse cx="600" cy="315" rx="400" ry="250" fill="url(#glowGradient)"/>
+
+  <!-- Logo text -->
+  <text x="600" y="260" font-family="Georgia, Playfair Display, serif" font-size="120" font-weight="700" fill="#f1f5f9" text-anchor="middle">
+    Carbono<tspan fill="url(#textGradient)">14</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="340" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="400" fill="#94a3b8" text-anchor="middle">
+    Servicios de IA y Desarrollo de Software
+  </text>
+
+  <!-- Services line -->
+  <text x="600" y="400" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="300" fill="#64748b" text-anchor="middle">
+    Automatización · Machine Learning · Desarrollo Web · Software a Medida
+  </text>
+
+  <!-- Bottom accent line -->
+  <rect x="500" y="480" width="200" height="3" rx="1.5" fill="url(#textGradient)"/>
+
+  <!-- URL -->
+  <text x="600" y="540" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="500" fill="#d94e28" text-anchor="middle">
+    carbono-14.net
+  </text>
+
+  <!-- Corner decorations -->
+  <rect x="40" y="40" width="60" height="3" fill="#d94e28" opacity="0.6"/>
+  <rect x="40" y="40" width="3" height="60" fill="#d94e28" opacity="0.6"/>
+  <rect x="1100" y="40" width="60" height="3" fill="#d94e28" opacity="0.6"/>
+  <rect x="1157" y="40" width="3" height="60" fill="#d94e28" opacity="0.6"/>
+  <rect x="40" y="587" width="60" height="3" fill="#d94e28" opacity="0.6"/>
+  <rect x="40" y="530" width="3" height="60" fill="#d94e28" opacity="0.6"/>
+  <rect x="1100" y="587" width="60" height="3" fill="#d94e28" opacity="0.6"/>
+  <rect x="1157" y="530" width="3" height="60" fill="#d94e28" opacity="0.6"/>
+</svg>
