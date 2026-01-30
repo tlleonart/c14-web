@@ -1,6 +1,8 @@
 import { z } from 'zod'
 import { publicProcedure, router } from '../trpc'
 import { sendContactEmail } from '@/server/email/sendContactEmail'
+import { convex } from '@/server/convex/client'
+import { api } from '../../../../convex/_generated/api'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
@@ -17,6 +19,22 @@ export type ContactInput = z.infer<typeof contactSchema>
 
 export const contactRouter = router({
   submit: publicProcedure.input(contactSchema).mutation(async ({ input }) => {
+    // Save contact to Convex database
+    if (convex) {
+      try {
+        await convex.mutation(api.contacts.create, {
+          name: input.name,
+          email: input.email,
+          company: input.company,
+          phone: input.phone,
+          message: input.message,
+          service: input.service,
+        })
+      } catch (error) {
+        console.error('Failed to save contact to Convex:', error)
+      }
+    }
+
     // Send email notification
     const emailSent = await sendContactEmail(input)
 
