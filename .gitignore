@@ -26,8 +26,6 @@ yarn-error.log*
 .vscode/
 *.swp
 *.swo
-.claude
-ux-inspiration
 
 # OS
 .DS_Store
@@ -48,3 +46,7 @@ coverage/
 *.log
 *.pid
 *.seed
+
+# IA
+.claude
+ux-inspiration
