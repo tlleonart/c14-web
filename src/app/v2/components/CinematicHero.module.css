@@ -1,0 +1,198 @@
+/* ── Hero Section ─────────────────────────────────────── */
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  padding-top: 80px;
+}
+
+/* ── Layout ──────────────────────────────────────────── */
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.content {
+  max-width: 800px;
+}
+
+/* ── Typography ──────────────────────────────────────── */
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #f8fafc;
+  margin-bottom: 1.5rem;
+}
+
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.highlight {
+  color: #d94e28;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 1.2s forwards;
+}
+
+/* ── Actions ─────────────────────────────────────────── */
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 1.4s forwards;
+}
+
+/* ── Gradient Mesh Background ────────────────────────── */
+
+@property --gradient-pos-x {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 30%;
+}
+
+@property --gradient-pos-y {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 40%;
+}
+
+.gradientMesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at var(--gradient-pos-x) var(--gradient-pos-y),
+      rgba(217, 78, 40, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at calc(100% - var(--gradient-pos-x)) calc(100% - var(--gradient-pos-y)),
+      rgba(245, 158, 11, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(217, 78, 40, 0.05) 0%,
+      transparent 70%
+    );
+  animation: meshShift 20s ease-in-out infinite;
+}
+
+@keyframes meshShift {
+  0% {
+    --gradient-pos-x: 30%;
+    --gradient-pos-y: 40%;
+  }
+  50% {
+    --gradient-pos-x: 70%;
+    --gradient-pos-y: 60%;
+  }
+  100% {
+    --gradient-pos-x: 30%;
+    --gradient-pos-y: 40%;
+  }
+}
+
+/* ── Floating Particles ──────────────────────────────── */
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(217, 78, 40, 0.3);
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 1rem;
+    padding-top: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .particle {
+    display: none;
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .subtitle,
+  .actions {
+    opacity: 1;
+    animation: none;
+  }
+
+  .gradientMesh {
+    animation: none;
+  }
+
+  .particle {
+    display: none;
+  }
+}

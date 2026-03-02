@@ -100,3 +100,40 @@ ol {
     scroll-behavior: auto !important;
   }
 }
+
+/* @property declarations for animated gradients — V2 and V4 */
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --gradient-pos-x {
+  syntax: '<percentage>';
+  initial-value: 30%;
+  inherits: false;
+}
+
+@property --gradient-pos-y {
+  syntax: '<percentage>';
+  initial-value: 40%;
+  inherits: false;
+}
+
+@property --aurora-hue-1 {
+  syntax: '<number>';
+  initial-value: 220;
+  inherits: false;
+}
+
+@property --aurora-hue-2 {
+  syntax: '<number>';
+  initial-value: 270;
+  inherits: false;
+}
+
+@property --shimmer-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}

@@ -19,4 +19,11 @@ export default defineSchema({
     status: v.union(v.literal('pending'), v.literal('contacted'), v.literal('completed')),
     createdAt: v.number(),
   }).index('by_status', ['status']),
+
+  clients: defineTable({
+    name: v.string(),
+    image: v.id('_storage'),
+    url: v.string(),
+    displayOrder: v.number(),
+  }).index('by_displayOrder', ['displayOrder']),
 })

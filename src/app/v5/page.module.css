@@ -1,0 +1,9 @@
+/* V5 — Warm Dark Editorial
+ * Dark theme with V3 editorial typography, glass-morphism, and warm accents.
+ */
+
+.page {
+  background: #0a0f1a;
+  color: #f0ebe3;
+  min-height: 100vh;
+}

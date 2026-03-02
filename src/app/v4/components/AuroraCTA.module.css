@@ -1,0 +1,78 @@
+.section {
+  padding: 8rem 2rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gradientText {
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #f0f0f0, #d94e28, #2d1b69, #f0f0f0);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.subtitle {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttonGlow {
+  display: inline-block;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(217, 78, 40, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.buttonGlow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(217, 78, 40, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradientText {
+    animation: none;
+    background-position: 0% 50%;
+  }
+  .buttonGlow:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 4rem 1.5rem;
+  }
+  .buttonGlow {
+    width: 100%;
+  }
+}

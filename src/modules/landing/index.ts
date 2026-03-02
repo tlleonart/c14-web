@@ -1,5 +1,6 @@
 export { Hero } from './components/Hero'
 export { Services } from './components/Services'
+export { Clients } from './components/Clients'
 export { CallToAction } from './components/CallToAction'
 export { ContactSection } from './components/ContactSection'
 export { services } from './data/services'
