@@ -1,0 +1,30 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.item strong {
+  color: var(--text);
+}
+
+.check {
+  flex-shrink: 0;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}

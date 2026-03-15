@@ -1,0 +1,299 @@
+.hero {
+  position: relative;
+  background: var(--bg-dark);
+  overflow: hidden;
+  padding: 110px 0 100px;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Background layers */
+.bgImage {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1800&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+}
+
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(45, 58, 140, 0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 10% 80%, rgba(212, 64, 48, 0.15) 0%, transparent 60%);
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.textBlock {
+  max-width: 760px;
+}
+
+/* Eyebrow */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 64, 48, 0.15);
+  border: 1px solid rgba(212, 64, 48, 0.35);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  margin-bottom: 32px;
+}
+
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: inline-block;
+  box-shadow: 0 0 8px var(--primary);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.eyebrowText {
+  font-family: var(--font-mono);
+  color: #ff8a7a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.85);
+  }
+}
+
+/* Headline */
+.headline {
+  font-size: var(--display-size);
+  font-weight: var(--weight-display);
+  line-height: 1.08;
+  letter-spacing: var(--ls-display);
+  color: var(--text-on-dark);
+  margin-bottom: 28px;
+}
+
+.gradientWord {
+  color: transparent;
+  background: linear-gradient(135deg, #f07060 0%, #ff9080 50%, #e05040 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Subheadline */
+.subheadline {
+  font-size: 1.1875rem;
+  color: var(--text-on-dark-muted);
+  max-width: 560px;
+  line-height: 1.65;
+  margin-bottom: 44px;
+}
+
+.subheadlineStrong {
+  color: var(--text-on-dark);
+  font-weight: 600;
+}
+
+/* CTAs */
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Trust indicators */
+.trustStrip {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.trustSeparator {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.trustContent {
+  text-align: left;
+}
+
+.trustValue {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-on-dark);
+  letter-spacing: -0.03em;
+}
+
+.trustLabel {
+  font-family: var(--font-mono);
+  color: var(--text-on-dark-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+/* Hero image panel - desktop only */
+.imagePanel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 42%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panelImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  filter: saturate(0.6) hue-rotate(200deg);
+}
+
+.panelGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--bg-dark) 0%, transparent 30%, transparent 70%, var(--bg-dark) 100%);
+}
+
+/* Terminal card */
+.terminal {
+  position: absolute;
+  bottom: 80px;
+  right: 60px;
+  background: rgba(22, 33, 62, 0.95);
+  border: 1px solid rgba(212, 64, 48, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #a8b8d0;
+  box-shadow: var(--shadow-lg);
+  min-width: 280px;
+}
+
+.terminalDots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.dotRed {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.dotYellow {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #febc2e;
+}
+
+.dotGreen {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #28c840;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .imagePanel {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 90px 0 70px;
+    min-height: auto;
+  }
+
+  .headline {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+  }
+
+  .subheadline {
+    font-size: 1.0625rem;
+  }
+
+  .trustStrip {
+    gap: 20px;
+  }
+
+  .trustItem {
+    gap: 20px;
+  }
+
+  .trustSeparator {
+    display: none;
+  }
+
+  .trustValue {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 80px 0 60px;
+  }
+
+  .trustStrip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .trustItem {
+    gap: 0;
+  }
+}

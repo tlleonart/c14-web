@@ -1,6 +1,6 @@
 .section {
   padding: var(--spacing-5xl) var(--spacing-xl);
-  background: var(--color-obsidian);
+  background: var(--bg-warm);
 }
 
 .container {
@@ -14,25 +14,25 @@
 }
 
 .title {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
-  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: clamp(var(--h2-size), 5vw, var(--h1-size));
+  color: var(--text);
   margin-bottom: var(--spacing-md);
 }
 
 .subtitle {
-  font-size: var(--text-lg);
-  color: var(--color-text-secondary);
+  font-size: var(--body-size);
+  color: var(--text-secondary);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
 .formWrapper {
-  background: var(--glass-background);
-  backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-2xl);
+  background: var(--bg-warm);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   padding: var(--spacing-2xl);
 }
 
@@ -58,6 +58,6 @@
 
   .formWrapper {
     padding: var(--spacing-md);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-sm);
   }
 }

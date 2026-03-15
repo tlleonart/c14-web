@@ -19,15 +19,15 @@
 }
 
 .title {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
-  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: clamp(var(--h2-size), 5vw, var(--h1-size));
+  color: var(--text);
   margin-bottom: var(--spacing-lg);
 }
 
 .description {
-  font-size: var(--text-lg);
-  color: var(--color-text-secondary);
+  font-size: var(--body-size);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: var(--spacing-2xl);
 }
@@ -47,7 +47,7 @@
   height: 400px;
   background: radial-gradient(
     ellipse,
-    rgba(217, 78, 40, 0.1) 0%,
+    rgba(200, 169, 110, 0.1) 0%,
     transparent 70%
   );
   filter: blur(40px);

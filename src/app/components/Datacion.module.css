@@ -22,7 +22,7 @@
 
 .label {
   display: inline-block;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -32,7 +32,7 @@
 }
 
 .heading {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 700;
   line-height: 1.2;
@@ -41,7 +41,7 @@
 }
 
 .intro {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.7;
   color: var(--v7-text-secondary);
@@ -89,7 +89,7 @@
   height: 48px;
   border-radius: 50%;
   border: 1.5px solid var(--v7-accent);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--v7-accent);
@@ -112,7 +112,7 @@
 }
 
 .phaseName {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.375rem;
   font-weight: 700;
   color: var(--v7-text);
@@ -123,7 +123,7 @@
 
 .phasePrefix {
   display: block;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -133,7 +133,7 @@
 }
 
 .phaseDescription {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.9375rem;
   line-height: 1.7;
   color: var(--v7-text-secondary);

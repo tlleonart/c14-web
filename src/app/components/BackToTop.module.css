@@ -1,0 +1,33 @@
+.button {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: var(--z-fixed);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition);
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.button:hover {
+  background: var(--bg-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}

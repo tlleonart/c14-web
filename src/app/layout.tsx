@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Analytics } from '@/shared/components/Analytics'
 import { Providers } from './providers'
 import './globals.css'
 
-const playfairDisplay = Playfair_Display({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-display',
+  variable: '--font-body',
   display: 'swap',
 })
 
-const inter = Inter({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-mono',
   display: 'swap',
 })
 
@@ -84,12 +85,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${playfairDisplay.variable} ${inter.variable}`}>
+    <html lang="es" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-        />
+        <noscript><style>{'.fadeIn{opacity:1!important}'}</style></noscript>
+        <Analytics />
       </head>
       <body>
         <Providers>{children}</Providers>

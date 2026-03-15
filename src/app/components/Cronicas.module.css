@@ -23,7 +23,7 @@
 
 .label {
   display: inline-block;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -33,7 +33,7 @@
 }
 
 .heading {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 700;
   line-height: 1.2;
@@ -42,7 +42,7 @@
 }
 
 .intro {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(240, 235, 227, 0.6);
@@ -69,7 +69,7 @@
 /* Content */
 .caseClient {
   display: inline-block;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -81,7 +81,7 @@
 }
 
 .caseHeadline {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 700;
   line-height: 1.25;
@@ -90,7 +90,7 @@
 }
 
 .caseDescription {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.9375rem;
   line-height: 1.7;
   color: rgba(240, 235, 227, 0.7);
@@ -98,7 +98,7 @@
 }
 
 .readMore {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--v7-accent);
@@ -128,7 +128,7 @@
 
 .metricValue {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--v7-accent);
@@ -136,7 +136,7 @@
 }
 
 .metricLabel {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.8125rem;
   color: rgba(240, 235, 227, 0.5);
 }

@@ -1,0 +1,22 @@
+.section {
+  padding: var(--section-gap) var(--spacing-xl);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.heading {
+  margin-bottom: var(--spacing-lg);
+}
+
+.intro {
+  color: var(--text-secondary);
+  font-size: var(--body-size);
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.formContainer {
+  max-width: 800px;
+  position: relative;
+}
