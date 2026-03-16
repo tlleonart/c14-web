@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export const alt = 'Carbono14 - Servicios de IA y Desarrollo de Software'
+export const alt = 'Carbono14 — IA operativa determinista para empresas'
 export const size = {
   width: 1200,
   height: 630,
@@ -163,7 +163,7 @@ export default async function Image() {
               marginBottom: 24,
             }}
           >
-            Servicios de IA y Desarrollo de Software
+            IA operativa determinista para empresas
           </div>
 
           {/* Services */}
@@ -176,8 +176,7 @@ export default async function Image() {
               marginBottom: 40,
             }}
           >
-            Automatización · Machine Learning · Desarrollo Web · Software a
-            Medida
+            Agentes operativos · Consultoría · Monitoreo · Desarrollo a medida
           </div>
 
           {/* Accent line */}
