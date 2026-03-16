@@ -26,7 +26,7 @@ describe('useActiveSection', () => {
   afterEach(() => {
     vi.restoreAllMocks()
     // Clean up DOM elements
-    const ids = ['problema', 'agentes', 'metodologia', 'gobernanza', 'testimonios']
+    const ids = ['problema', 'agentes', 'metodologia', 'gobernanza', 'por-que', 'clientes']
     ids.forEach((id) => {
       const el = document.getElementById(id)
       if (el) el.remove()
@@ -39,7 +39,7 @@ describe('useActiveSection', () => {
   })
 
   it('observes all section elements that exist in the DOM', () => {
-    const sections = ['problema', 'agentes', 'metodologia', 'gobernanza', 'testimonios']
+    const sections = ['problema', 'agentes', 'metodologia', 'gobernanza', 'por-que', 'clientes']
     sections.forEach((id) => {
       const el = document.createElement('section')
       el.id = id
@@ -47,7 +47,7 @@ describe('useActiveSection', () => {
     })
 
     renderHook(() => useActiveSection())
-    expect(mockObserve).toHaveBeenCalledTimes(5)
+    expect(mockObserve).toHaveBeenCalledTimes(6)
   })
 
   it('returns the active section ID when a section intersects', () => {

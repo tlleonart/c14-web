@@ -6,7 +6,7 @@ const AGENTS = [
     title: 'Inventario',
     description:
       'Monitoreo en tiempo real de stock, alertas predictivas de reposición y gestión automática de órdenes de compra.',
-    specs: ['Capacidad: 50k+ SKUs', 'Sync tiempo real'],
+    specs: ['Capacidad escalable', 'Sync configurable'],
     icon: '📦',
     gradient: 'linear-gradient(90deg, var(--primary), #f07060)',
     codeColor: 'var(--primary)',
@@ -32,7 +32,7 @@ const AGENTS = [
     title: 'Documentación',
     description:
       'Generación automática de documentos estructurados: contratos, informes, compliance docs, con plantillas auditables.',
-    specs: ['500+ docs/hora', '40+ formatos'],
+    specs: ['Generación automatizada', 'Formatos configurables'],
     icon: '📄',
     gradient: 'linear-gradient(90deg, #2a7a4a, #40aa6a)',
     codeColor: '#2a7a4a',
@@ -77,8 +77,7 @@ export function Agentes() {
         <div className={styles.disclaimer}>
           <div className={styles.disclaimerBadge}>
             <span className={styles.disclaimerIcon}>ℹ</span>
-            Ejemplo de arquitectura — cada solución se diseña a medida según las
-            necesidades de tu empresa
+            Arquitectura de ejemplo — cada solución se diseña a medida según tus procesos
           </div>
         </div>
 

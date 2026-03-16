@@ -1,9 +1,9 @@
 import styles from './Hero.module.css'
 
 const TRUST_INDICATORS = [
-  { value: '30+', label: 'AGENTES DESPLEGADOS' },
+  { value: '100%', label: 'DETERMINISMO' },
   { value: '<48h', label: 'TIEMPO DE ANÁLISIS' },
-  { value: '99.9%', label: 'UPTIME GARANTIZADO' },
+  { value: '0', label: 'CAJAS NEGRAS' },
   { value: '100%', label: 'TRAZABILIDAD' },
 ]
 
@@ -32,7 +32,7 @@ export function Hero() {
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowDot} />
             <span className={styles.eyebrowText}>
-              IA OPERATIVA · BUENOS AIRES · EST. 2023
+              IA OPERATIVA · BUENOS AIRES · EST. 2026
             </span>
           </div>
 

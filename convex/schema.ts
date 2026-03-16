@@ -23,6 +23,11 @@ export default defineSchema({
     createdAt: v.number(),
   }).index('by_status', ['status']),
 
+  newsletterSubscriptions: defineTable({
+    email: v.string(),
+    subscribedAt: v.number(),
+  }).index('by_email', ['email']),
+
   clients: defineTable({
     name: v.string(),
     image: v.id('_storage'),

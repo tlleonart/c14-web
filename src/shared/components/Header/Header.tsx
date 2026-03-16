@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { href: '#agentes', label: 'Agentes' },
   { href: '#metodologia', label: 'Metodología' },
   { href: '#gobernanza', label: 'Gobernanza' },
-  { href: '#testimonios', label: 'Clientes' },
+  { href: '#clientes', label: 'Clientes' },
 ]
 
 export function Header() {

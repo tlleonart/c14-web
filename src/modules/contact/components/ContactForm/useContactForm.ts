@@ -57,7 +57,7 @@ export function useContactForm(options: UseContactFormOptions = {}): UseContactF
     },
     onError: (error) => {
       setSubmitError(
-        'No pudimos enviar tu mensaje. Intentá de nuevo o escribinos a hola@carbono-14.net.'
+        'No pudimos enviar tu mensaje. Intentá de nuevo o escribinos a info@carbono-14.net.'
       )
       if (error.data?.zodError?.fieldErrors) {
         const fieldErrors = error.data.zodError.fieldErrors as Record<string, string[]>

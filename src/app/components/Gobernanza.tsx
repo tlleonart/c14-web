@@ -4,11 +4,11 @@ const CARDS = [
   { icon: '✅', title: 'Trazabilidad completa', description: 'Cada acción de cada agente queda registrada en un log inmutable. Saber quién decidió qué, cuándo y por qué — siempre.' },
   { icon: '⚖️', title: 'Reglas auditables', description: 'Las reglas de negocio son explícitas, documentadas y revisables por tu equipo legal o de compliance en cualquier momento.' },
   { icon: '🛡️', title: 'Rollback instantáneo', description: 'Si algo sale mal, cada operación puede revertirse. Diseñamos cada agente con capacidades de rollback y recuperación de estado.' },
-  { icon: '📊', title: 'Monitoreo 24/7', description: 'Dashboard de observabilidad en tiempo real. Alertas configurables, métricas de performance y health checks automatizados.' },
+  { icon: '📊', title: 'Monitoreo configurable', description: 'Diseñamos el monitoreo según tus requerimientos — alertas, métricas y health checks.' },
 ]
 
 const COMPLIANCE = [
-  'Listo para SOC 2 / ISO 27001',
+  'Arquitectura compatible con SOC 2 / ISO 27001',
   'Compatible con GDPR / regulaciones locales',
   'Deploy en tu infraestructura o en la nuestra',
 ]

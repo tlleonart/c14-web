@@ -17,7 +17,7 @@ describe('Hero', () => {
 
   it('renders the eyebrow label', () => {
     render(<Hero />)
-    expect(screen.getByText(/IA OPERATIVA.*BUENOS AIRES.*EST\. 2023/)).toBeInTheDocument()
+    expect(screen.getByText(/IA OPERATIVA.*BUENOS AIRES.*EST\. 2026/)).toBeInTheDocument()
   })
 
   it('renders the subheadline with "determinismo completo"', () => {
@@ -37,17 +37,16 @@ describe('Hero', () => {
 
   it('renders 4 trust indicators', () => {
     render(<Hero />)
-    expect(screen.getByText('30+')).toBeInTheDocument()
+    expect(screen.getByText('0')).toBeInTheDocument()
     expect(screen.getByText('<48h')).toBeInTheDocument()
-    expect(screen.getByText('99.9%')).toBeInTheDocument()
-    expect(screen.getByText('100%')).toBeInTheDocument()
+    expect(screen.getAllByText('100%')).toHaveLength(2)
   })
 
   it('renders trust indicator labels', () => {
     render(<Hero />)
-    expect(screen.getByText('AGENTES DESPLEGADOS')).toBeInTheDocument()
+    expect(screen.getByText('DETERMINISMO')).toBeInTheDocument()
     expect(screen.getByText('TIEMPO DE ANÁLISIS')).toBeInTheDocument()
-    expect(screen.getByText('UPTIME GARANTIZADO')).toBeInTheDocument()
+    expect(screen.getByText('CAJAS NEGRAS')).toBeInTheDocument()
     expect(screen.getByText('TRAZABILIDAD')).toBeInTheDocument()
   })
 

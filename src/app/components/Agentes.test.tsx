@@ -26,7 +26,7 @@ describe('Agentes', () => {
 
   it('renders architecture disclaimer', () => {
     render(<Agentes />)
-    expect(screen.getByText(/Ejemplo de arquitectura/)).toBeInTheDocument()
+    expect(screen.getByText(/Arquitectura de ejemplo/)).toBeInTheDocument()
   })
 
   it('renders custom agent card', () => {

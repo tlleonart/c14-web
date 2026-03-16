@@ -10,7 +10,7 @@ import { Problema } from './components/Problema'
 import { Agentes } from './components/Agentes'
 import { Metodologia } from './components/Metodologia'
 import { Gobernanza } from './components/Gobernanza'
-import { Testimonios } from './components/Testimonios'
+import { PorQue } from './components/PorQue'
 import { ContactoSection } from './components/ContactoSection'
 import { PreFooterCta } from './components/PreFooterCta'
 import { FadeIn } from '@/shared/components/FadeIn'
@@ -56,7 +56,7 @@ export default function Home() {
         <FadeIn><Agentes /></FadeIn>
         <FadeIn><Metodologia /></FadeIn>
         <FadeIn><Gobernanza /></FadeIn>
-        <FadeIn><Testimonios /></FadeIn>
+        <FadeIn><PorQue /></FadeIn>
         <FadeIn><ContactoSection /></FadeIn>
         <FadeIn><PreFooterCta /></FadeIn>
       </main>

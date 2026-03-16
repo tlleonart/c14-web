@@ -26,8 +26,6 @@ describe('Footer', () => {
 
   it('renders social icons with aria-labels', () => {
     render(<Footer />)
-    expect(screen.getByLabelText('LinkedIn')).toBeInTheDocument()
-    expect(screen.getByLabelText('GitHub')).toBeInTheDocument()
     expect(screen.getByLabelText('Email')).toBeInTheDocument()
   })
 
@@ -40,11 +38,10 @@ describe('Footer', () => {
     expect(screen.getByText('Agentes a medida')).toBeInTheDocument()
   })
 
-  it('renders company column with 4 links', () => {
+  it('renders company column with 3 links', () => {
     render(<Footer />)
     expect(screen.getByText('Metodología')).toBeInTheDocument()
     expect(screen.getByText('Gobernanza')).toBeInTheDocument()
-    expect(screen.getByText('Casos de éxito')).toBeInTheDocument()
     expect(screen.getByText('Contacto')).toBeInTheDocument()
   })
 

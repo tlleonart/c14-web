@@ -32,7 +32,7 @@ describe('ContactoSection', () => {
 
   it('renders contact info', () => {
     render(<ContactoSection />)
-    expect(screen.getByText('hola@carbono-14.net')).toBeInTheDocument()
+    expect(screen.getByText('info@carbono-14.net')).toBeInTheDocument()
     expect(screen.getByText('Buenos Aires, Argentina')).toBeInTheDocument()
   })
 

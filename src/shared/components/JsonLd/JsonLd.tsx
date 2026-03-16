@@ -1,5 +1,4 @@
 import Script from 'next/script'
-import { services } from '@/modules/landing/data/services'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://carbono-14.net'
 
@@ -11,10 +10,11 @@ function getOrganizationSchema() {
     url: siteUrl,
     logo: `${siteUrl}/icon.svg`,
     description:
-      'Automatización con IA, desarrollo de inteligencia artificial, web y software a medida. Soluciones tecnológicas innovadoras para impulsar tu negocio.',
+      'Sistemas de IA operativa determinista para empresas. Agentes con reglas formales, resultados verificables y escalamiento a humanos.',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
+      email: 'info@carbono-14.net',
       availableLanguage: ['Spanish', 'English'],
     },
     sameAs: [],
@@ -28,10 +28,17 @@ function getWebSiteSchema() {
     name: 'Carbono14',
     url: siteUrl,
     description:
-      'Servicios de inteligencia artificial, automatización y desarrollo de software.',
+      'IA operativa determinista para empresas. Agentes con reglas formales, resultados verificables y escalamiento a humanos.',
     inLanguage: 'es',
   }
 }
+
+const SERVICES = [
+  'Agentes de IA operativa',
+  'Consultoría de IA',
+  'Monitoreo y operación de agentes',
+  'Desarrollo a medida',
+]
 
 function getServicesSchema() {
   return {
@@ -39,18 +46,17 @@ function getServicesSchema() {
     '@type': 'ItemList',
     name: 'Servicios de Carbono14',
     description: 'Servicios de tecnología e inteligencia artificial',
-    itemListElement: services.map((service, index) => ({
+    itemListElement: SERVICES.map((name, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       item: {
         '@type': 'Service',
-        name: service.title,
-        description: service.description,
+        name,
         provider: {
           '@type': 'Organization',
           name: 'Carbono14',
         },
-        serviceType: service.title,
+        serviceType: name,
       },
     })),
   }

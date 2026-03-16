@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-const SECTION_IDS = ['problema', 'agentes', 'metodologia', 'gobernanza', 'testimonios']
+const SECTION_IDS = ['problema', 'agentes', 'metodologia', 'gobernanza', 'por-que', 'clientes']
 
 export function useActiveSection(threshold = 0.3): string | null {
   const [activeSection, setActiveSection] = useState<string | null>(null)

@@ -13,7 +13,7 @@ describe('Gobernanza', () => {
     expect(screen.getByText('Trazabilidad completa')).toBeInTheDocument()
     expect(screen.getByText('Reglas auditables')).toBeInTheDocument()
     expect(screen.getByText('Rollback instantáneo')).toBeInTheDocument()
-    expect(screen.getByText('Monitoreo 24/7')).toBeInTheDocument()
+    expect(screen.getByText('Monitoreo configurable')).toBeInTheDocument()
   })
 
   it('renders 3 compliance badges', () => {
