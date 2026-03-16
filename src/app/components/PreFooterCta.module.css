@@ -1,0 +1,67 @@
+.section {
+  background: var(--primary);
+  padding: 56px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.heading {
+  color: #fff;
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -9,7 +9,10 @@ import { SocialProof } from './components/SocialProof'
 import { Problema } from './components/Problema'
 import { Agentes } from './components/Agentes'
 import { Metodologia } from './components/Metodologia'
+import { Gobernanza } from './components/Gobernanza'
+import { Testimonios } from './components/Testimonios'
 import { ContactoSection } from './components/ContactoSection'
+import { PreFooterCta } from './components/PreFooterCta'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -51,7 +54,10 @@ export default function Home() {
         <Problema />
         <Agentes />
         <Metodologia />
+        <Gobernanza />
+        <Testimonios />
         <ContactoSection />
+        <PreFooterCta />
       </main>
       <Footer />
       <BackToTop />
