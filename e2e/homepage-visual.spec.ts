@@ -55,10 +55,11 @@ test.describe('Homepage — Sprint 1 Visual Verification', () => {
   })
 
   test('hero — trust indicators visible', async ({ page }) => {
-    await expect(page.getByText('30+')).toBeVisible()
-    await expect(page.getByText('<48h')).toBeVisible()
-    await expect(page.getByText('99.9%')).toBeVisible()
-    await expect(page.getByText('100%')).toBeVisible()
+    const hero = page.locator('#top')
+    await expect(hero.getByText('30+', { exact: true })).toBeVisible()
+    await expect(hero.getByText('<48h', { exact: true })).toBeVisible()
+    await expect(hero.getByText('99.9%', { exact: true })).toBeVisible()
+    await expect(hero.getByText('100%', { exact: true })).toBeVisible()
   })
 
   test('scroll progress bar exists', async ({ page }) => {

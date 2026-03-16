@@ -5,11 +5,10 @@ import { JsonLd } from '@/shared/components/JsonLd'
 import { Hero } from './components/Hero'
 import { ScrollProgress } from './components/ScrollProgress'
 import { BackToTop } from './components/BackToTop'
+import { SocialProof } from './components/SocialProof'
 import { Problema } from './components/Problema'
-import { ComoFunciona } from './components/ComoFunciona'
-import { Capacidades } from './components/Capacidades'
-import { Evidencia } from './components/Evidencia'
-import { EntradaAccesible } from './components/EntradaAccesible'
+import { Agentes } from './components/Agentes'
+import { Metodologia } from './components/Metodologia'
 import { ContactoSection } from './components/ContactoSection'
 import styles from './page.module.css'
 
@@ -48,11 +47,10 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <SocialProof />
         <Problema />
-        <ComoFunciona />
-        <Capacidades />
-        <Evidencia />
-        <EntradaAccesible />
+        <Agentes />
+        <Metodologia />
         <ContactoSection />
       </main>
       <Footer />
