@@ -4,10 +4,13 @@ import { v } from 'convex/values'
 export default defineSchema({
   contactRequests: defineTable({
     name: v.string(),
+    lastName: v.optional(v.string()),
     email: v.string(),
     company: v.optional(v.string()),
+    position: v.optional(v.string()),
     phone: v.optional(v.string()),
     message: v.string(),
+    source: v.optional(v.string()),
     service: v.optional(
       v.union(
         v.literal('automation'),

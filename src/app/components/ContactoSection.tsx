@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useContactForm } from '@/modules/contact/components/ContactForm/useContactForm'
 import styles from './ContactoSection.module.css'
 
 const STEPS = [
@@ -10,12 +10,15 @@ const STEPS = [
 ]
 
 export function ContactoSection() {
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSubmitted(true)
-  }
+  const {
+    formData,
+    errors,
+    isSubmitting,
+    isSuccess,
+    submitError,
+    handleChange,
+    handleSubmit,
+  } = useContactForm()
 
   return (
     <section id="contacto" className={styles.section}>
@@ -63,7 +66,7 @@ export function ContactoSection() {
 
           {/* Right — Form */}
           <div className={styles.formCard}>
-            {submitted ? (
+            {isSuccess ? (
               <div className={styles.successMessage}>
                 <div className={styles.successIcon}>✓</div>
                 <h3 className={styles.successTitle}>¡Mensaje enviado!</h3>
@@ -76,47 +79,98 @@ export function ContactoSection() {
                 <h3 className={styles.formTitle}>Solicitar análisis gratuito</h3>
                 <p className={styles.formSubtitle}>Respuesta en menos de 48 horas hábiles.</p>
 
+                {submitError && (
+                  <div className={styles.errorBanner}>{submitError}</div>
+                )}
+
                 <form className={styles.form} onSubmit={handleSubmit}>
                   <div className={styles.twoCol}>
                     <div>
                       <label className={styles.label}>Nombre</label>
-                      <input type="text" placeholder="Ana" className={styles.input} required />
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Ana"
+                        className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                      />
+                      {errors.name && <span className={styles.fieldError}>{errors.name}</span>}
                     </div>
                     <div>
                       <label className={styles.label}>Apellido</label>
-                      <input type="text" placeholder="García" className={styles.input} required />
+                      <input
+                        type="text"
+                        name="lastName"
+                        placeholder="García"
+                        className={styles.input}
+                        value={formData.lastName || ''}
+                        onChange={handleChange}
+                      />
                     </div>
                   </div>
                   <div>
                     <label className={styles.label}>Email corporativo</label>
-                    <input type="email" placeholder="ana@empresa.com" className={styles.input} required />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="ana@empresa.com"
+                      className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                    {errors.email && <span className={styles.fieldError}>{errors.email}</span>}
                   </div>
                   <div className={styles.twoCol}>
                     <div>
                       <label className={styles.label}>Empresa</label>
-                      <input type="text" placeholder="Empresa SA" className={styles.input} required />
+                      <input
+                        type="text"
+                        name="company"
+                        placeholder="Empresa SA"
+                        className={`${styles.input} ${errors.company ? styles.inputError : ''}`}
+                        value={formData.company || ''}
+                        onChange={handleChange}
+                        required
+                      />
+                      {errors.company && <span className={styles.fieldError}>{errors.company}</span>}
                     </div>
                     <div>
                       <label className={styles.label}>Cargo</label>
-                      <input type="text" placeholder="CTO / CEO / VP Eng" className={styles.input} />
+                      <input
+                        type="text"
+                        name="position"
+                        placeholder="CTO / CEO / VP Eng"
+                        className={styles.input}
+                        value={formData.position || ''}
+                        onChange={handleChange}
+                      />
                     </div>
                   </div>
                   <div>
                     <label className={styles.label}>¿Qué proceso querés automatizar?</label>
                     <textarea
+                      name="message"
                       rows={4}
                       placeholder="Describí brevemente el proceso o área. Ej: gestión de órdenes de compra, generación de reportes financieros..."
-                      className={styles.textarea}
+                      className={`${styles.textarea} ${errors.message ? styles.inputError : ''}`}
+                      value={formData.message}
+                      onChange={handleChange}
                       required
                     />
+                    {errors.message && <span className={styles.fieldError}>{errors.message}</span>}
                   </div>
                   {/* Honeypot */}
                   <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
-                    <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+                    <input type="text" name="website" tabIndex={-1} autoComplete="off" onChange={handleChange} />
                   </div>
-                  <button type="submit" className={styles.submitButton}>
-                    Solicitar análisis gratuito
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
+                    {isSubmitting ? 'Enviando...' : 'Solicitar análisis gratuito'}
+                    {!isSubmitting && (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    )}
                   </button>
                   <p className={styles.privacyNote}>
                     Al enviar este formulario aceptás nuestra{' '}

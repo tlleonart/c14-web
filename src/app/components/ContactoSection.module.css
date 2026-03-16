@@ -157,6 +157,19 @@
   text-decoration: underline;
 }
 
+/* Error states */
+.inputError { border-color: var(--primary); }
+.fieldError { color: var(--primary); font-size: 0.75rem; margin-top: 4px; display: block; }
+.errorBanner {
+  background: rgba(212, 64, 48, 0.08);
+  border: 1px solid rgba(212, 64, 48, 0.2);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  color: var(--primary);
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+
 /* Success state */
 .successMessage { text-align: center; padding: 40px 20px; }
 .successIcon { font-size: 3rem; color: #60c878; margin-bottom: 16px; }

@@ -4,18 +4,13 @@ import { v } from 'convex/values'
 export const create = mutation({
   args: {
     name: v.string(),
+    lastName: v.optional(v.string()),
     email: v.string(),
     company: v.optional(v.string()),
+    position: v.optional(v.string()),
     phone: v.optional(v.string()),
     message: v.string(),
-    service: v.optional(
-      v.union(
-        v.literal('automation'),
-        v.literal('ai-development'),
-        v.literal('web-development'),
-        v.literal('software-development')
-      )
-    ),
+    source: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const contactId = await ctx.db.insert('contactRequests', {

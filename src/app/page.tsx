@@ -13,6 +13,7 @@ import { Gobernanza } from './components/Gobernanza'
 import { Testimonios } from './components/Testimonios'
 import { ContactoSection } from './components/ContactoSection'
 import { PreFooterCta } from './components/PreFooterCta'
+import { FadeIn } from '@/shared/components/FadeIn'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -50,14 +51,14 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <SocialProof />
-        <Problema />
-        <Agentes />
-        <Metodologia />
-        <Gobernanza />
-        <Testimonios />
-        <ContactoSection />
-        <PreFooterCta />
+        <FadeIn><SocialProof /></FadeIn>
+        <FadeIn><Problema /></FadeIn>
+        <FadeIn><Agentes /></FadeIn>
+        <FadeIn><Metodologia /></FadeIn>
+        <FadeIn><Gobernanza /></FadeIn>
+        <FadeIn><Testimonios /></FadeIn>
+        <FadeIn><ContactoSection /></FadeIn>
+        <FadeIn><PreFooterCta /></FadeIn>
       </main>
       <Footer />
       <BackToTop />

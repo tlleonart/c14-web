@@ -1,6 +1,21 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { ContactoSection } from './ContactoSection'
+
+// Mock the useContactForm hook
+vi.mock('@/modules/contact/components/ContactForm/useContactForm', () => ({
+  useContactForm: () => ({
+    formData: { name: '', lastName: '', email: '', company: '', position: '', phone: '', message: '', source: '' },
+    honeypot: '',
+    errors: {},
+    isSubmitting: false,
+    isSuccess: false,
+    submitError: null,
+    handleChange: vi.fn(),
+    handleSubmit: vi.fn((e: { preventDefault: () => void }) => e.preventDefault()),
+    resetForm: vi.fn(),
+  }),
+}))
 
 describe('ContactoSection', () => {
   it('renders section heading', () => {
