@@ -1,6 +1,16 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { Footer } from './Footer'
+
+// Mock NewsletterForm since it uses tRPC
+vi.mock('./NewsletterForm', () => ({
+  NewsletterForm: () => (
+    <div>
+      <input aria-label="Email para newsletter" />
+      <button>Suscribirme</button>
+    </div>
+  ),
+}))
 
 describe('Footer', () => {
   it('renders brand logo', () => {

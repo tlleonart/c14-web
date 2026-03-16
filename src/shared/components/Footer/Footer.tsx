@@ -1,3 +1,4 @@
+import { NewsletterForm } from './NewsletterForm'
 import styles from './Footer.module.css'
 
 const SERVICE_LINKS = [
@@ -87,17 +88,7 @@ export function Footer() {
               Insights sobre IA operativa, gobernanza de agentes y automatización
               empresarial.
             </p>
-            <div className={styles.newsletterForm}>
-              <input
-                type="email"
-                placeholder="tu@empresa.com"
-                className={styles.newsletterInput}
-                aria-label="Email para newsletter"
-              />
-              <button className={styles.newsletterButton} type="button">
-                Suscribirme
-              </button>
-            </div>
+            <NewsletterForm />
           </div>
         </div>
 

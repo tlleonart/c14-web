@@ -156,6 +156,12 @@
   background: var(--primary-dark);
 }
 
+.newsletterSuccess {
+  color: #60c878;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
 /* Bottom bar */
 .bottom {
   padding-top: 28px;
