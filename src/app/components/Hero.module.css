@@ -12,7 +12,7 @@
 .bgImage {
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1800&q=80');
+  background-image: url('/images/hero-geometric.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.12;

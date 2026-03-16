@@ -84,7 +84,7 @@ export function Hero() {
       <div className={styles.imagePanel} aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900&q=80"
+          src="/images/hero-geometric.jpg"
           alt=""
           className={styles.panelImage}
         />
