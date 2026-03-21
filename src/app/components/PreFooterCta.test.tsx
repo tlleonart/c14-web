@@ -10,12 +10,12 @@ describe('PreFooterCta', () => {
 
   it('renders subtitle', () => {
     render(<PreFooterCta />)
-    expect(screen.getByText(/Análisis técnico gratuito/)).toBeInTheDocument()
+    expect(screen.getByText(/Validamos tu proceso/)).toBeInTheDocument()
   })
 
   it('renders CTA button linking to #contacto', () => {
     render(<PreFooterCta />)
-    const cta = screen.getByText('Solicitar análisis ahora')
+    const cta = screen.getByText('Validar mi proceso')
     expect(cta).toBeInTheDocument()
     expect(cta.closest('a')).toHaveAttribute('href', '#contacto')
   })

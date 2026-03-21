@@ -4,9 +4,9 @@ const STEPS = [
   {
     number: '00',
     phase: 'FASE 0',
-    title: 'Auditoría',
+    title: 'Validación',
     description:
-      'Relevamiento de procesos, identificación de oportunidades de automatización y análisis de factibilidad técnica.',
+      'Relevamiento de procesos, identificación de oportunidades de automatización y evaluación de factibilidad técnica.',
     badge: '<48h entrega',
     badgeStyle: 'primary' as const,
     active: true,

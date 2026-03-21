@@ -12,7 +12,7 @@ const CAPABILITIES = [
   },
   {
     heading: 'Dirección técnica antes de construir.',
-    body: 'Auditoría de tu operación actual, diseño de arquitectura de agentes, evaluación de viabilidad técnica. Para equipos que necesitan claridad antes de comprometerse con una implementación. Empezamos con un análisis de 48 horas, sin compromiso.',
+    body: 'Evaluación de tu operación actual, diseño de arquitectura de agentes, evaluación de viabilidad técnica. Para equipos que necesitan claridad antes de comprometerse con una implementación. Empezamos con una validación gratuita en 48 horas, sin compromiso.',
   },
   {
     heading: 'Supervisión continua después de implementar.',

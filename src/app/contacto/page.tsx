@@ -7,9 +7,9 @@ import { ProcessSidebar } from './components/ProcessSidebar'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Contacto — Auditoría técnica de IA | Carbono14',
+  title: 'Contacto — Validación de proceso con IA | Carbono14',
   description:
-    'Contanos qué proceso querés automatizar. Te respondemos con un análisis técnico preliminar en 48 horas hábiles. Sin compromiso.',
+    'Contanos qué proceso querés automatizar. Te respondemos con una validación inicial en 48 horas hábiles. Sin compromiso.',
   alternates: {
     canonical: 'https://carbono-14.net/contacto',
   },
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: 'Contacto — Auditoría técnica de IA | Carbono14',
+    title: 'Contacto — Validación de proceso con IA | Carbono14',
     description:
-      'Contanos qué proceso querés automatizar. Te respondemos con un análisis técnico preliminar en 48 horas hábiles. Sin compromiso.',
+      'Contanos qué proceso querés automatizar. Te respondemos con una validación inicial en 48 horas hábiles. Sin compromiso.',
     url: 'https://carbono-14.net/contacto',
     type: 'website',
     locale: 'es_AR',
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contacto — Auditoría técnica de IA | Carbono14',
+    title: 'Contacto — Validación de proceso con IA | Carbono14',
     description:
-      'Contanos qué proceso querés automatizar. Te respondemos con un análisis técnico preliminar en 48 horas hábiles. Sin compromiso.',
+      'Contanos qué proceso querés automatizar. Te respondemos con una validación inicial en 48 horas hábiles. Sin compromiso.',
   },
 }
 

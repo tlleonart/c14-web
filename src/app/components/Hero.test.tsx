@@ -25,9 +25,9 @@ describe('Hero', () => {
     expect(screen.getByText(/determinismo completo/)).toBeInTheDocument()
   })
 
-  it('renders primary CTA "Solicitar análisis gratuito"', () => {
+  it('renders primary CTA "Validar mi proceso"', () => {
     render(<Hero />)
-    expect(screen.getByText('Solicitar análisis gratuito')).toBeInTheDocument()
+    expect(screen.getByText('Validar mi proceso')).toBeInTheDocument()
   })
 
   it('renders secondary CTA "Ver agentes"', () => {
@@ -45,7 +45,7 @@ describe('Hero', () => {
   it('renders trust indicator labels', () => {
     render(<Hero />)
     expect(screen.getByText('DETERMINISMO')).toBeInTheDocument()
-    expect(screen.getByText('TIEMPO DE ANÁLISIS')).toBeInTheDocument()
+    expect(screen.getByText('TIEMPO DE VALIDACIÓN')).toBeInTheDocument()
     expect(screen.getByText('CAJAS NEGRAS')).toBeInTheDocument()
     expect(screen.getByText('TRAZABILIDAD')).toBeInTheDocument()
   })
@@ -65,7 +65,7 @@ describe('Hero', () => {
 
   it('has CTA links pointing to correct anchors', () => {
     render(<Hero />)
-    const primaryCta = screen.getByText('Solicitar análisis gratuito').closest('a')
+    const primaryCta = screen.getByText('Validar mi proceso').closest('a')
     const secondaryCta = screen.getByText('Ver agentes').closest('a')
     expect(primaryCta).toHaveAttribute('href', '#contacto')
     expect(secondaryCta).toHaveAttribute('href', '#agentes')

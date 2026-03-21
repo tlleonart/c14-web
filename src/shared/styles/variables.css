@@ -3,7 +3,7 @@
   /* Colors — Primary */
   --primary: #d44030;
   --primary-dark: #b33020;
-  --primary-light: #f0564030;
+  --primary-light: rgba(212, 64, 48, 0.12);
   --secondary: #2d3a8c;
   --secondary-dark: #1e2a6b;
   --accent: #f5a623;
@@ -18,13 +18,22 @@
   /* Colors — Text */
   --text: #1c1c1e;
   --text-secondary: #555558;
-  --text-muted: #868690;
+  --text-muted: #707075;
   --text-on-dark: #e8e8f0;
   --text-on-dark-muted: #9090b0;
 
   /* Colors — Borders */
   --border: #e2ddd8;
-  --border-dark: #2e2e4a;
+  --border-dark: rgba(255, 255, 255, 0.08);
+
+  /* Colors — Semantic (v2.0) */
+  --success: #60c878;
+  --error: #d44030;
+  --warning: #f5a623;
+  --info: #5b8dd9;
+  --neutral: #707075;
+  --coral: #ff8a7a;
+  --blue-label: #7b8ed4;
 
   /* Typography — Fonts */
   --font-body: 'Inter', system-ui, sans-serif;

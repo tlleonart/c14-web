@@ -52,7 +52,7 @@ export function SocialProof() {
         <div className={styles.metrics}>
           <span>
             Especialistas en IA operativa y automatización de procesos ·
-            Análisis técnico gratuito en &lt;48h
+            Validación gratuita en &lt;48h
           </span>
         </div>
       </div>

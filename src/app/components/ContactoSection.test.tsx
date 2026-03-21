@@ -5,7 +5,7 @@ import { ContactoSection } from './ContactoSection'
 // Mock the useContactForm hook
 vi.mock('@/modules/contact/components/ContactForm/useContactForm', () => ({
   useContactForm: () => ({
-    formData: { name: '', lastName: '', email: '', company: '', position: '', phone: '', message: '', source: '' },
+    formData: { email: '', company: '', message: '' },
     honeypot: '',
     errors: {},
     isSubmitting: false,
@@ -20,13 +20,13 @@ vi.mock('@/modules/contact/components/ContactForm/useContactForm', () => ({
 describe('ContactoSection', () => {
   it('renders section heading', () => {
     render(<ContactoSection />)
-    expect(screen.getByText(/Analizamos tus procesos/)).toBeInTheDocument()
+    expect(screen.getByText(/Validamos tu proceso/)).toBeInTheDocument()
   })
 
   it('renders 3 numbered steps', () => {
     render(<ContactoSection />)
     expect(screen.getByText('Completá el formulario')).toBeInTheDocument()
-    expect(screen.getByText('Recibís el análisis técnico')).toBeInTheDocument()
+    expect(screen.getByText('Recibís la validación')).toBeInTheDocument()
     expect(screen.getByText('Decidís si continuamos')).toBeInTheDocument()
   })
 
@@ -36,18 +36,16 @@ describe('ContactoSection', () => {
     expect(screen.getByText('Buenos Aires, Argentina')).toBeInTheDocument()
   })
 
-  it('renders form with all fields', () => {
+  it('renders form with 3 fields', () => {
     render(<ContactoSection />)
-    expect(screen.getByText('Nombre')).toBeInTheDocument()
-    expect(screen.getByText('Apellido')).toBeInTheDocument()
     expect(screen.getByText('Email corporativo')).toBeInTheDocument()
     expect(screen.getByText('Empresa')).toBeInTheDocument()
-    expect(screen.getByText('Cargo')).toBeInTheDocument()
+    expect(screen.getByText(/proceso querés validar/)).toBeInTheDocument()
   })
 
   it('renders submit button', () => {
     render(<ContactoSection />)
-    expect(screen.getByRole('button', { name: /Solicitar análisis/ })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Validar mi proceso/ })).toBeInTheDocument()
   })
 
   it('has section with id="contacto"', () => {

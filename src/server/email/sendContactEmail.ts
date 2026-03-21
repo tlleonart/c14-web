@@ -1,5 +1,5 @@
 interface ContactEmailData {
-  name: string
+  name?: string
   email: string
   company?: string
   phone?: string
@@ -37,10 +37,10 @@ export async function sendContactEmail(data: ContactEmailData): Promise<boolean>
       body: JSON.stringify({
         from: 'Carbono14 <contacto@carbono-14.net>',
         to: recipients,
-        subject: `Nuevo contacto: ${data.name}`,
+        subject: `Nuevo contacto: ${data.name || data.company || 'Sin nombre'}`,
         html: `
           <h2>Nuevo mensaje de contacto</h2>
-          <p><strong>Nombre:</strong> ${data.name}</p>
+          ${data.name ? `<p><strong>Nombre:</strong> ${data.name}</p>` : ''}
           <p><strong>Email:</strong> ${data.email}</p>
           ${data.company ? `<p><strong>Empresa:</strong> ${data.company}</p>` : ''}
           ${data.phone ? `<p><strong>Teléfono:</strong> ${data.phone}</p>` : ''}

@@ -15,8 +15,8 @@ export function ServiciosCta() {
         ¿Tenés un proceso que querés automatizar?
       </h2>
       <p className={styles.body}>
-        Contanos qué necesitás y te respondemos con un análisis técnico
-        preliminar en 48 horas hábiles. Sin compromiso.
+        Contanos qué necesitás y te respondemos con una validación inicial
+        en 48 horas hábiles. Sin compromiso.
       </p>
       <Link href="/contacto" className={styles.button}>
         Hablemos

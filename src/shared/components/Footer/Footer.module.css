@@ -157,9 +157,15 @@
 }
 
 .newsletterSuccess {
-  color: #60c878;
+  color: var(--success);
   font-size: 0.875rem;
   font-weight: 600;
+}
+
+.newsletterError {
+  color: var(--coral);
+  font-size: 0.75rem;
+  line-height: 1.4;
 }
 
 /* Bottom bar */

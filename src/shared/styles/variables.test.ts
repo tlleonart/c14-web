@@ -12,7 +12,7 @@ describe('Design Tokens — variables.css', () => {
     const requiredColors = [
       ['--primary', '#d44030'],
       ['--primary-dark', '#b33020'],
-      ['--primary-light', '#f0564030'],
+      ['--primary-light', 'rgba(212, 64, 48, 0.12)'],
       ['--secondary', '#2d3a8c'],
       ['--secondary-dark', '#1e2a6b'],
       ['--accent', '#f5a623'],
@@ -23,11 +23,11 @@ describe('Design Tokens — variables.css', () => {
       ['--bg-card', '#ffffff'],
       ['--text', '#1c1c1e'],
       ['--text-secondary', '#555558'],
-      ['--text-muted', '#868690'],
+      ['--text-muted', '#707075'],
       ['--text-on-dark', '#e8e8f0'],
       ['--text-on-dark-muted', '#9090b0'],
       ['--border', '#e2ddd8'],
-      ['--border-dark', '#2e2e4a'],
+      ['--border-dark', 'rgba(255, 255, 255, 0.08)'],
     ]
 
     it.each(requiredColors)(
@@ -177,17 +177,14 @@ describe('Design Tokens — variables.css', () => {
       }
     )
 
-    const largeTextPairs: [string, string, string, string][] = [
-      ['--text-muted', '#868690', '--bg', '#fafaf8'],
-      ['--text-muted', '#868690', '--bg-warm', '#f0ece6'],
-    ]
+    it('--text-muted on --bg meets 4.5:1 ratio (WCAG AA)', () => {
+      const ratio = contrastRatio('#707075', '#fafaf8')
+      expect(ratio).toBeGreaterThanOrEqual(4.5)
+    })
 
-    it.each(largeTextPairs)(
-      '%s on %s meets 3:1 ratio (large text)',
-      (textName, textHex, bgName, bgHex) => {
-        const ratio = contrastRatio(textHex, bgHex)
-        expect(ratio).toBeGreaterThanOrEqual(3.0)
-      }
-    )
+    it('--text-muted on --bg-warm meets 3:1 ratio (large text)', () => {
+      const ratio = contrastRatio('#707075', '#f0ece6')
+      expect(ratio).toBeGreaterThanOrEqual(3.0)
+    })
   })
 })

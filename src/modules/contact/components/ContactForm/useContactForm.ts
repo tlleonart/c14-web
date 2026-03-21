@@ -19,14 +19,9 @@ export interface UseContactFormReturn {
 }
 
 const initialFormData: ContactInput = {
-  name: '',
-  lastName: '',
   email: '',
   company: '',
-  position: '',
-  phone: '',
   message: '',
-  source: '',
 }
 
 interface UseContactFormOptions {
@@ -74,9 +69,6 @@ export function useContactForm(options: UseContactFormOptions = {}): UseContactF
 
   const validateField = (name: keyof ContactInput, value: string): string | undefined => {
     switch (name) {
-      case 'name':
-        if (!value || value.length < 2) return 'El nombre es obligatorio'
-        break
       case 'email':
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Email inválido'
         break
@@ -84,7 +76,7 @@ export function useContactForm(options: UseContactFormOptions = {}): UseContactF
         if (!value || value.length < 2) return 'La empresa es obligatoria'
         break
       case 'message':
-        if (!value || value.length < 10) return 'El mensaje debe tener al menos 10 caracteres'
+        if (!value || value.length < 10) return 'Describí brevemente tu proceso'
         break
     }
     return undefined
@@ -119,12 +111,10 @@ export function useContactForm(options: UseContactFormOptions = {}): UseContactF
     }
 
     const newErrors: FormErrors = {}
-    const nameError = validateField('name', formData.name)
     const emailError = validateField('email', formData.email)
     const companyError = validateField('company', formData.company || '')
     const messageError = validateField('message', formData.message)
 
-    if (nameError) newErrors.name = nameError
     if (emailError) newErrors.email = emailError
     if (companyError) newErrors.company = companyError
     if (messageError) newErrors.message = messageError

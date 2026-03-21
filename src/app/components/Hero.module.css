@@ -119,6 +119,15 @@
   font-weight: 600;
 }
 
+/* Audience qualifier */
+.audienceLine {
+  font-size: var(--small-size);
+  color: var(--text-on-dark-muted);
+  max-width: 560px;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
 /* CTAs */
 .ctas {
   display: flex;

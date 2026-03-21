@@ -18,11 +18,11 @@ interface Phase {
 const PHASES: Phase[] = [
   {
     number: '0',
-    title: 'Auditoría técnica',
+    title: 'Validación',
     badge: '48 horas hábiles. Sin compromiso.',
     body: [
-      'Analizamos tu operación actual: procesos, datos, integraciones, reglas de negocio. Identificamos dónde la IA operativa puede generar impacto real y dónde no tiene sentido forzarla. Te entregamos un diagnóstico preliminar con recomendaciones accionables.',
-      'No es una propuesta comercial. Es un análisis técnico. Si después de verlo decidís que no tiene sentido avanzar, no perdiste nada.',
+      'Evaluamos tu operación actual: procesos, datos, integraciones, reglas de negocio. Identificamos dónde la IA operativa puede generar impacto real y dónde no tiene sentido forzarla. Te entregamos una validación con factibilidad y próximos pasos recomendados.',
+      'No es una propuesta comercial. Es una validación gratuita. Si después de verla decidís que no tiene sentido avanzar, no perdiste nada.',
     ],
     closing: '',
     featured: true,

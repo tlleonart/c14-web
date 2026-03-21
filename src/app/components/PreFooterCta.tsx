@@ -10,11 +10,11 @@ export function PreFooterCta() {
             ¿Listo para pasar de experimental a operativo?
           </h3>
           <p className={styles.subtitle}>
-            Análisis técnico gratuito en menos de 48 horas.
+            Validamos tu proceso en menos de 48 horas — sin compromiso
           </p>
         </div>
         <a href="#contacto" className={styles.ctaButton}>
-          Solicitar análisis ahora
+          Validar mi proceso
         </a>
       </div>
     </section>

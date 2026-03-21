@@ -2,7 +2,7 @@ import styles from './Hero.module.css'
 
 const TRUST_INDICATORS = [
   { value: '100%', label: 'DETERMINISMO' },
-  { value: '<48h', label: 'TIEMPO DE ANÁLISIS' },
+  { value: '<48h', label: 'TIEMPO DE VALIDACIÓN' },
   { value: '0', label: 'CAJAS NEGRAS' },
   { value: '100%', label: 'TRAZABILIDAD' },
 ]
@@ -47,14 +47,19 @@ export function Hero() {
           <p className={styles.subheadline}>
             Diseñamos e implementamos arquitecturas de agentes autónomos con{' '}
             <strong className={styles.subheadlineStrong}>determinismo completo</strong>,
-            trazabilidad total y gobernanza empresarial. Análisis técnico comprometido
+            trazabilidad total y gobernanza empresarial. Validación gratuita
             en menos de 48&nbsp;horas.
+          </p>
+
+          {/* Audience qualifier */}
+          <p className={styles.audienceLine}>
+            Para equipos de operaciones, finanzas y logística en empresas de 50 a 500 personas.
           </p>
 
           {/* CTAs */}
           <div className={styles.ctas}>
             <a href="#contacto" className={`btn btn-primary btn-lg ${styles.ctaPrimary}`}>
-              Solicitar análisis gratuito
+              Validar mi proceso
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />

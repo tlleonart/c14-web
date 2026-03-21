@@ -10,7 +10,7 @@ import styles from './page.module.css'
 export const metadata: Metadata = {
   title: 'Cómo trabajamos — Proceso de IA operativa | Carbono14',
   description:
-    'Cuatro fases para minimizar riesgo: auditoría técnica, especificación formal, implementación con trazabilidad y monitoreo continuo. Cero improvisación.',
+    'Cuatro fases para minimizar riesgo: validación, especificación formal, implementación con trazabilidad y monitoreo continuo. Cero improvisación.',
   alternates: {
     canonical: 'https://carbono-14.net/metodo',
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Cómo trabajamos — Proceso de IA operativa | Carbono14',
     description:
-      'Cuatro fases para minimizar riesgo: auditoría técnica, especificación formal, implementación con trazabilidad y monitoreo continuo. Cero improvisación.',
+      'Cuatro fases para minimizar riesgo: validación, especificación formal, implementación con trazabilidad y monitoreo continuo. Cero improvisación.',
     url: 'https://carbono-14.net/metodo',
     type: 'website',
     locale: 'es_AR',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Cómo trabajamos — Proceso de IA operativa | Carbono14',
     description:
-      'Cuatro fases para minimizar riesgo: auditoría técnica, especificación formal, implementación con trazabilidad y monitoreo continuo. Cero improvisación.',
+      'Cuatro fases para minimizar riesgo: validación, especificación formal, implementación con trazabilidad y monitoreo continuo. Cero improvisación.',
   },
 }
 

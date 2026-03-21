@@ -6,8 +6,8 @@ import styles from './ProcessSidebar.module.css'
 
 const STEPS = [
   'Leemos tu mensaje y evaluamos el caso.',
-  'Te respondemos en 48 horas hábiles con un análisis preliminar.',
-  'Si tiene sentido avanzar, coordinamos una auditoría técnica.',
+  'Te respondemos en 48 horas hábiles con una validación inicial.',
+  'Si tiene sentido avanzar, coordinamos una auditoría técnica completa.',
   'Si no tiene sentido, te lo decimos. Sin vueltas.',
 ]
 

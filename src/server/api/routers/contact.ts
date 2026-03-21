@@ -5,13 +5,13 @@ import { convex } from '@/server/convex/client'
 import { api } from '../../../../convex/_generated/api'
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
+  name: z.string().optional(),
   lastName: z.string().optional(),
   email: z.string().email('Email inválido'),
-  company: z.string().optional(),
+  company: z.string().min(2, 'La empresa es obligatoria'),
   position: z.string().optional(),
   phone: z.string().optional(),
-  message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
+  message: z.string().min(10, 'Describí brevemente tu proceso'),
   source: z.string().optional(),
 })
 
@@ -23,7 +23,7 @@ export const contactRouter = router({
     if (convex) {
       try {
         await convex.mutation(api.contacts.create, {
-          name: input.name,
+          name: input.name || input.company || '',
           lastName: input.lastName,
           email: input.email,
           company: input.company,

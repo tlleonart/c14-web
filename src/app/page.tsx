@@ -19,7 +19,7 @@ import styles from './page.module.css'
 export const metadata: Metadata = {
   title: 'Carbono14 — IA operativa determinista para empresas',
   description:
-    'Agentes de IA con reglas formales, resultados verificables y escalamiento a humanos. Para operaciones donde equivocarse no es opción. Auditoría en 48hs.',
+    'Agentes de IA con reglas formales, resultados verificables y escalamiento a humanos. Para operaciones donde equivocarse no es opción. Validación gratuita en 48h.',
   alternates: {
     canonical: 'https://carbono-14.net/',
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Carbono14 — IA operativa determinista para empresas',
     description:
-      'Agentes de IA con reglas formales, resultados verificables y escalamiento a humanos. Para operaciones donde equivocarse no es opción. Auditoría en 48hs.',
+      'Agentes de IA con reglas formales, resultados verificables y escalamiento a humanos. Para operaciones donde equivocarse no es opción. Validación gratuita en 48h.',
     url: 'https://carbono-14.net/',
     type: 'website',
     locale: 'es_AR',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Carbono14 — IA operativa determinista para empresas',
     description:
-      'Agentes de IA con reglas formales, resultados verificables y escalamiento a humanos. Para operaciones donde equivocarse no es opción. Auditoría en 48hs.',
+      'Agentes de IA con reglas formales, resultados verificables y escalamiento a humanos. Para operaciones donde equivocarse no es opción. Validación gratuita en 48h.',
   },
 }
 

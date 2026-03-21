@@ -5,8 +5,8 @@ import styles from './ContactoSection.module.css'
 
 const STEPS = [
   { num: '1', title: 'Completá el formulario', description: 'Describí el proceso o área que querés automatizar con IA.' },
-  { num: '2', title: 'Recibís el análisis técnico', description: 'En menos de 48 horas, un análisis detallado con factibilidad y arquitectura propuesta.' },
-  { num: '3', title: 'Decidís si continuamos', description: 'Sin presión, sin contratos. Avanzamos solo si el análisis te convence.' },
+  { num: '2', title: 'Recibís la validación', description: 'En menos de 48 horas, una validación con factibilidad y próximos pasos recomendados.' },
+  { num: '3', title: 'Decidís si continuamos', description: 'Sin presión, sin contratos. Avanzamos solo si la validación te convence.' },
 ]
 
 export function ContactoSection() {
@@ -28,12 +28,15 @@ export function ContactoSection() {
           <div>
             <span className="section-label">Contacto</span>
             <h2 className={styles.heading}>
-              Analizamos tus procesos en menos de 48 horas.
+              Validamos tu proceso en menos de 48 horas.
             </h2>
             <p className={styles.description}>
-              Compartinos el proceso que querés automatizar y te devolvemos un
-              análisis técnico gratuito con factibilidad, arquitectura propuesta
-              y estimación de esfuerzo. Sin compromiso.
+              Contanos qué proceso querés automatizar y te devolvemos una
+              validación inicial con factibilidad y próximos pasos recomendados.
+              Sin compromiso.
+            </p>
+            <p className={styles.audienceLine}>
+              Si tu empresa procesa operaciones repetitivas que requieren precisión y auditabilidad, podemos ayudarte.
             </p>
 
             <div className={styles.steps}>
@@ -76,7 +79,7 @@ export function ContactoSection() {
               </div>
             ) : (
               <>
-                <h3 className={styles.formTitle}>Solicitar análisis gratuito</h3>
+                <h3 className={styles.formTitle}>Validar mi proceso</h3>
                 <p className={styles.formSubtitle}>Respuesta en menos de 48 horas hábiles.</p>
 
                 {submitError && (
@@ -86,75 +89,40 @@ export function ContactoSection() {
                 <form className={styles.form} onSubmit={handleSubmit}>
                   <div className={styles.twoCol}>
                     <div>
-                      <label className={styles.label}>Nombre</label>
+                      <label className={styles.label}>Email corporativo</label>
                       <input
-                        type="text"
-                        name="name"
-                        placeholder="Ana"
-                        className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
-                        value={formData.name}
+                        type="email"
+                        name="email"
+                        placeholder="tu@empresa.com"
+                        className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
+                        value={formData.email}
                         onChange={handleChange}
                         required
+                        autoComplete="email"
                       />
-                      {errors.name && <span className={styles.fieldError}>{errors.name}</span>}
+                      {errors.email && <span className={styles.fieldError}>{errors.email}</span>}
                     </div>
-                    <div>
-                      <label className={styles.label}>Apellido</label>
-                      <input
-                        type="text"
-                        name="lastName"
-                        placeholder="García"
-                        className={styles.input}
-                        value={formData.lastName || ''}
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className={styles.label}>Email corporativo</label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="ana@empresa.com"
-                      className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                    {errors.email && <span className={styles.fieldError}>{errors.email}</span>}
-                  </div>
-                  <div className={styles.twoCol}>
                     <div>
                       <label className={styles.label}>Empresa</label>
                       <input
                         type="text"
                         name="company"
-                        placeholder="Empresa SA"
+                        placeholder="Nombre de tu empresa"
                         className={`${styles.input} ${errors.company ? styles.inputError : ''}`}
                         value={formData.company || ''}
                         onChange={handleChange}
                         required
+                        autoComplete="organization"
                       />
                       {errors.company && <span className={styles.fieldError}>{errors.company}</span>}
                     </div>
-                    <div>
-                      <label className={styles.label}>Cargo</label>
-                      <input
-                        type="text"
-                        name="position"
-                        placeholder="CTO / CEO / VP Eng"
-                        className={styles.input}
-                        value={formData.position || ''}
-                        onChange={handleChange}
-                      />
-                    </div>
                   </div>
                   <div>
-                    <label className={styles.label}>¿Qué proceso querés automatizar?</label>
+                    <label className={styles.label}>¿Qué proceso querés validar?</label>
                     <textarea
                       name="message"
-                      rows={4}
-                      placeholder="Describí brevemente el proceso o área. Ej: gestión de órdenes de compra, generación de reportes financieros..."
+                      rows={3}
+                      placeholder="Describí en una línea el proceso que querés automatizar."
                       className={`${styles.textarea} ${errors.message ? styles.inputError : ''}`}
                       value={formData.message}
                       onChange={handleChange}
@@ -167,14 +135,14 @@ export function ContactoSection() {
                     <input type="text" name="website" tabIndex={-1} autoComplete="off" onChange={handleChange} />
                   </div>
                   <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
-                    {isSubmitting ? 'Enviando...' : 'Solicitar análisis gratuito'}
+                    {isSubmitting ? 'Enviando...' : 'Validar mi proceso'}
                     {!isSubmitting && (
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     )}
                   </button>
                   <p className={styles.privacyNote}>
                     Al enviar este formulario aceptás nuestra{' '}
-                    <a href="#">política de privacidad</a>.
+                    <a href="/privacy-policy">política de privacidad</a>.
                     Respondemos en menos de 48 horas hábiles.
                   </p>
                 </form>

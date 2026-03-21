@@ -12,7 +12,7 @@ export function ContactoIntro() {
       <h1 className={styles.heading}>Hablemos de tu operación.</h1>
       <p className={styles.body}>
         Contanos qué proceso querés automatizar o qué problema estás tratando de
-        resolver. Te respondemos con un análisis técnico preliminar en 48 horas
+        resolver. Te respondemos con una validación inicial en 48 horas
         hábiles. Sin compromiso.
       </p>
     </div>

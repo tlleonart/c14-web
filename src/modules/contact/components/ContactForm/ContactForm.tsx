@@ -28,7 +28,7 @@ export function ContactForm({ defaultSource }: ContactFormProps = {}) {
         <span className={styles.checkmark} aria-hidden="true">✓</span>
         <h2 className={styles.confirmationHeading}>Recibimos tu mensaje.</h2>
         <p className={styles.confirmationBody}>
-          Te respondemos en 48 horas hábiles con un análisis técnico preliminar.
+          Te respondemos en 48 horas hábiles con una validación inicial.
           Si necesitás algo urgente, escribinos a{' '}
           <a href="mailto:info@carbono-14.net" className={styles.confirmationLink}>
             info@carbono-14.net
@@ -43,18 +43,7 @@ export function ContactForm({ defaultSource }: ContactFormProps = {}) {
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <div className={styles.row}>
         <Input
-          label="Nombre *"
-          name="name"
-          type="text"
-          placeholder="Tu nombre"
-          value={formData.name}
-          onChange={handleChange}
-          error={errors.name}
-          required
-          autoComplete="name"
-        />
-        <Input
-          label="Email *"
+          label="Email corporativo *"
           name="email"
           type="email"
           placeholder="tu@empresa.com"
@@ -77,34 +66,15 @@ export function ContactForm({ defaultSource }: ContactFormProps = {}) {
         />
       </div>
 
-      <Input
-        label="Teléfono"
-        name="phone"
-        type="tel"
-        placeholder="+54 11 ..."
-        value={formData.phone || ''}
-        onChange={handleChange}
-        autoComplete="tel"
-      />
-
       <Textarea
-        label="¿Qué necesitás? *"
+        label="¿Qué proceso querés validar? *"
         name="message"
-        placeholder="Contanos qué proceso querés automatizar, qué problema estás tratando de resolver, o cualquier contexto que nos ayude a entender tu situación."
+        placeholder="Describí en una línea el proceso que querés automatizar."
         value={formData.message}
         onChange={handleChange}
         error={errors.message}
         required
-        rows={5}
-      />
-
-      <Input
-        label="¿Cómo nos encontraste?"
-        name="source"
-        type="text"
-        placeholder="Referido, búsqueda, redes, etc."
-        value={formData.source || ''}
-        onChange={handleChange}
+        rows={3}
       />
 
       {/* Honeypot field — hidden from humans, bots fill it */}

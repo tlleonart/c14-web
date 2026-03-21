@@ -86,10 +86,10 @@ export function Footer() {
             Argentina.
           </p>
           <div className={styles.legalLinks}>
-            <a href="#" className={styles.legalLink}>
+            <a href="/privacy-policy" className={styles.legalLink}>
               Política de privacidad
             </a>
-            <a href="#" className={styles.legalLink}>
+            <a href="/terms-of-use" className={styles.legalLink}>
               Términos de uso
             </a>
           </div>

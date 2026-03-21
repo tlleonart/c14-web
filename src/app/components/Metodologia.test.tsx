@@ -10,7 +10,7 @@ describe('Metodologia', () => {
 
   it('renders 4 phases', () => {
     render(<Metodologia />)
-    expect(screen.getByText('Auditoría')).toBeInTheDocument()
+    expect(screen.getByText('Validación')).toBeInTheDocument()
     expect(screen.getByText('Especificación')).toBeInTheDocument()
     expect(screen.getByText('Implementación')).toBeInTheDocument()
     expect(screen.getByText('Operación')).toBeInTheDocument()

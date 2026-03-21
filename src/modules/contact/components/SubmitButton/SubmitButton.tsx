@@ -7,7 +7,7 @@ interface SubmitButtonProps {
 export function SubmitButton({ isSubmitting }: SubmitButtonProps) {
   return (
     <Button type="submit" size="lg" isLoading={isSubmitting} disabled={isSubmitting}>
-      {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
+      {isSubmitting ? 'Enviando...' : 'Validar mi proceso'}
     </Button>
   )
 }
