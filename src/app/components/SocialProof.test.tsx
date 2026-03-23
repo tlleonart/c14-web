@@ -22,7 +22,7 @@ vi.mock('@/trpc/client', () => ({
 describe('SocialProof', () => {
   it('renders section title', () => {
     render(<SocialProof />)
-    expect(screen.getByText(/Empresas que confían/)).toBeInTheDocument()
+    expect(screen.getByText(/Confían en nosotros/)).toBeInTheDocument()
   })
 
   it('renders client logos with links', () => {
@@ -33,13 +33,21 @@ describe('SocialProof', () => {
 
   it('renders client images', () => {
     render(<SocialProof />)
-    expect(screen.getByAltText('Aladil')).toBeInTheDocument()
-    expect(screen.getByAltText('Zephyra')).toBeInTheDocument()
+    expect(screen.getByAltText('Logo de Aladil')).toBeInTheDocument()
+    expect(screen.getByAltText('Logo de Zephyra')).toBeInTheDocument()
+  })
+
+  it('renders tech logos', () => {
+    render(<SocialProof />)
+    expect(screen.getByText(/Construido con/)).toBeInTheDocument()
+    expect(screen.getByAltText('Logo de Anthropic')).toBeInTheDocument()
+    expect(screen.getByAltText('Logo de n8n')).toBeInTheDocument()
+    expect(screen.getByAltText('Logo de Vercel')).toBeInTheDocument()
   })
 
   it('renders metrics line', () => {
     render(<SocialProof />)
-    expect(screen.getByText(/Especialistas en IA operativa/)).toBeInTheDocument()
+    expect(screen.getByText(/Validación gratuita/)).toBeInTheDocument()
   })
 
   it('has section with id="clientes"', () => {

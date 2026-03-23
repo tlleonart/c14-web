@@ -1,4 +1,4 @@
-import { IconCheck, IconScale, IconShield, IconChart } from '@/shared/components/Icons/SectionIcons'
+import { IconCheck, IconScale, IconShield, IconChart, InlineCheck } from '@/shared/components/Icons/SectionIcons'
 import styles from './Gobernanza.module.css'
 
 const CARDS = [
@@ -46,7 +46,7 @@ export function Gobernanza() {
             <div key={item} className={styles.complianceItem}>
               {i > 0 && <div className={styles.complianceSeparator} />}
               <div className={styles.complianceContent}>
-                <span className={styles.complianceCheck}>✓</span>
+                <InlineCheck className={styles.complianceCheck} />
                 <span className={styles.complianceText}>{item}</span>
               </div>
             </div>

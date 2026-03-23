@@ -41,7 +41,7 @@ describe('Footer', () => {
   it('renders company column with 3 links', () => {
     render(<Footer />)
     expect(screen.getByText('Metodología')).toBeInTheDocument()
-    expect(screen.getByText('Gobernanza')).toBeInTheDocument()
+    expect(screen.getByText('Seguridad')).toBeInTheDocument()
     expect(screen.getByText('Contacto')).toBeInTheDocument()
   })
 

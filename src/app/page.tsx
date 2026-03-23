@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Header } from '@/shared/components/Header'
 import { Footer } from '@/shared/components/Footer'
 import { JsonLd } from '@/shared/components/JsonLd'
@@ -7,14 +8,17 @@ import { ScrollProgress } from './components/ScrollProgress'
 import { BackToTop } from './components/BackToTop'
 import { SocialProof } from './components/SocialProof'
 import { Problema } from './components/Problema'
-import { Agentes } from './components/Agentes'
-import { Metodologia } from './components/Metodologia'
-import { Gobernanza } from './components/Gobernanza'
-import { PorQue } from './components/PorQue'
-import { ContactoSection } from './components/ContactoSection'
-import { PreFooterCta } from './components/PreFooterCta'
-import { InlineNewsletter } from './components/InlineNewsletter'
 import { FadeIn } from '@/shared/components/FadeIn'
+
+// Code-split below-fold sections for TBT optimization
+const Agentes = dynamic(() => import('./components/Agentes').then((m) => ({ default: m.Agentes })))
+const Metodologia = dynamic(() => import('./components/Metodologia').then((m) => ({ default: m.Metodologia })))
+const Gobernanza = dynamic(() => import('./components/Gobernanza').then((m) => ({ default: m.Gobernanza })))
+const PorQue = dynamic(() => import('./components/PorQue').then((m) => ({ default: m.PorQue })))
+const ContactoSection = dynamic(() => import('./components/ContactoSection').then((m) => ({ default: m.ContactoSection })))
+const PreFooterCta = dynamic(() => import('./components/PreFooterCta').then((m) => ({ default: m.PreFooterCta })))
+const InlineNewsletter = dynamic(() => import('./components/InlineNewsletter').then((m) => ({ default: m.InlineNewsletter })))
+const Faq = dynamic(() => import('./components/Faq').then((m) => ({ default: m.Faq })))
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -59,6 +63,7 @@ export default function Home() {
         <FadeIn><Metodologia /></FadeIn>
         <FadeIn><Gobernanza /></FadeIn>
         <FadeIn><PorQue /></FadeIn>
+        <FadeIn><Faq /></FadeIn>
         <FadeIn><ContactoSection /></FadeIn>
         <FadeIn><PreFooterCta /></FadeIn>
       </main>

@@ -37,16 +37,15 @@ describe('Hero', () => {
 
   it('renders 4 trust indicators', () => {
     render(<Hero />)
-    expect(screen.getByText('0')).toBeInTheDocument()
     expect(screen.getByText('<48h')).toBeInTheDocument()
-    expect(screen.getAllByText('100%')).toHaveLength(2)
+    expect(screen.getAllByText('100%')).toHaveLength(3)
   })
 
   it('renders trust indicator labels', () => {
     render(<Hero />)
     expect(screen.getByText('DETERMINISMO')).toBeInTheDocument()
     expect(screen.getByText('TIEMPO DE VALIDACIÓN')).toBeInTheDocument()
-    expect(screen.getByText('CAJAS NEGRAS')).toBeInTheDocument()
+    expect(screen.getByText('TRANSPARENCIA')).toBeInTheDocument()
     expect(screen.getByText('TRAZABILIDAD')).toBeInTheDocument()
   })
 

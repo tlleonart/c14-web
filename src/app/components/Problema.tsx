@@ -1,4 +1,4 @@
-import { IconScale, IconShield, IconClipboard } from '@/shared/components/Icons/SectionIcons'
+import { IconScale, IconShield, IconClipboard, InlineCheck, InlineCross } from '@/shared/components/Icons/SectionIcons'
 import styles from './Problema.module.css'
 
 const CRITERIA = [
@@ -57,10 +57,10 @@ export function Problema() {
                 <tr>
                   <th></th>
                   <th className={styles.colGen}>
-                    <span className={styles.iconClose}>✕</span> IA Generativa
+                    <InlineCross className={styles.iconClose} /> IA Generativa
                   </th>
                   <th className={styles.colOp}>
-                    <span className={styles.iconCheck}>✓</span> IA Operativa
+                    <InlineCheck className={styles.iconCheck} /> IA Operativa
                   </th>
                 </tr>
               </thead>
@@ -69,11 +69,11 @@ export function Problema() {
                   <tr key={row.name}>
                     <td>{row.name}</td>
                     <td className={styles.neg}>
-                      <span className={styles.iconClose}>✕</span>
+                      <InlineCross className={styles.iconClose} />
                       {row.neg}
                     </td>
                     <td className={styles.pos}>
-                      <span className={styles.iconCheck}>✓</span>
+                      <InlineCheck className={styles.iconCheck} />
                       {row.pos}
                     </td>
                   </tr>

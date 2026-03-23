@@ -4,7 +4,7 @@ import styles from './Hero.module.css'
 const TRUST_INDICATORS = [
   { value: '100%', label: 'DETERMINISMO' },
   { value: '<48h', label: 'TIEMPO DE VALIDACIÓN' },
-  { value: '0', label: 'CAJAS NEGRAS' },
+  { value: '100%', label: 'TRANSPARENCIA' },
   { value: '100%', label: 'TRAZABILIDAD' },
 ]
 

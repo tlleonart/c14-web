@@ -7,17 +7,15 @@ export function SocialProof() {
   const { data: clients } = trpc.clients.list.useQuery()
 
   return (
-    <section id="clientes" className={styles.section}>
+    <section id="clientes" className={styles.section} aria-label="Clientes y tecnología">
       <div className="container">
-        <p className={styles.title}>
-          Empresas que confían en nosotros
-        </p>
+        {/* Layer 1: Client Trust */}
+        <p className={styles.title}>Confían en nosotros</p>
 
         <div className={styles.logosRow}>
           {clients && clients.length > 0 ? (
-            clients.map((client, i) => (
+            clients.map((client) => (
               <div key={client._id} className={styles.logoItem}>
-                {i > 0 && <div className={styles.separator} />}
                 {client.imageUrl ? (
                   <a
                     href={client.url}
@@ -28,9 +26,11 @@ export function SocialProof() {
                   >
                     <img
                       src={client.imageUrl}
-                      alt={client.name}
+                      alt={`Logo de ${client.name}`}
                       className={styles.logoImage}
                       loading="lazy"
+                      width={160}
+                      height={52}
                     />
                   </a>
                 ) : (
@@ -43,17 +43,31 @@ export function SocialProof() {
           ) : (
             <>
               <div className={styles.logoPlaceholder}>Aladil</div>
-              <div className={styles.separator} />
               <div className={styles.logoPlaceholder}>Zephyra</div>
             </>
           )}
         </div>
 
+        {/* Separator */}
+        <div className={styles.layerSeparator} />
+
+        {/* Layer 2: Technology Trust */}
+        <p className={styles.techLabel}>Construido con</p>
+        <div className={styles.techLogosRow}>
+          <div className={styles.techLogoItem}>
+            <img src="/images/logos/logo-anthropic.svg" alt="Logo de Anthropic" />
+          </div>
+          <div className={styles.techLogoItem}>
+            <img src="/images/logos/logo-n8n.svg" alt="Logo de n8n" />
+          </div>
+          <div className={styles.techLogoItem}>
+            <img src="/images/logos/logo-vercel.svg" alt="Logo de Vercel" />
+          </div>
+        </div>
+
+        {/* Metrics line */}
         <div className={styles.metrics}>
-          <span>
-            Especialistas en IA operativa y automatización de procesos ·
-            Validación gratuita en &lt;48h
-          </span>
+          <span>Validación gratuita en &lt;48h</span>
         </div>
       </div>
     </section>

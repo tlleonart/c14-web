@@ -2,17 +2,17 @@ import { NewsletterForm } from './NewsletterForm'
 import styles from './Footer.module.css'
 
 const SERVICE_LINKS = [
-  { label: 'Agente de Inventario', href: '#agentes' },
-  { label: 'Agente Financiero', href: '#agentes' },
-  { label: 'Agente de Documentación', href: '#agentes' },
-  { label: 'Orquestador Multi-Agente', href: '#agentes' },
-  { label: 'Agentes a medida', href: '#contacto' },
+  { label: 'Agente de Inventario', href: '/#agentes' },
+  { label: 'Agente Financiero', href: '/#agentes' },
+  { label: 'Agente de Documentación', href: '/#agentes' },
+  { label: 'Orquestador Multi-Agente', href: '/#agentes' },
+  { label: 'Agentes a medida', href: '/#contacto' },
 ]
 
 const COMPANY_LINKS = [
-  { label: 'Metodología', href: '#metodologia' },
-  { label: 'Gobernanza', href: '#gobernanza' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Metodología', href: '/#metodologia' },
+  { label: 'Seguridad', href: '/#gobernanza' },
+  { label: 'Contacto', href: '/#contacto' },
 ]
 
 export function Footer() {

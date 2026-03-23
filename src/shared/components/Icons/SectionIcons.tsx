@@ -120,3 +120,33 @@ export function IconCheck({ className }: IconProps) {
     </svg>
   )
 }
+
+/** Inline check mark for tables/badges (16px) */
+export function InlineCheck({ className }: IconProps) {
+  return (
+    <svg className={className} width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="3.5,8.5 6.5,11.5 12.5,5" />
+    </svg>
+  )
+}
+
+/** Inline cross mark for tables (16px) */
+export function InlineCross({ className }: IconProps) {
+  return (
+    <svg className={className} width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="4" y1="4" x2="12" y2="12" />
+      <line x1="12" y1="4" x2="4" y2="12" />
+    </svg>
+  )
+}
+
+/** Inline info icon for banners (16px) */
+export function InlineInfo({ className }: IconProps) {
+  return (
+    <svg className={className} width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="8" cy="8" r="6.5" />
+      <line x1="8" y1="7" x2="8" y2="11" />
+      <circle cx="8" cy="5" r="0.5" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}

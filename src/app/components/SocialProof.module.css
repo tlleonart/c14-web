@@ -2,20 +2,21 @@
   background: var(--bg-warm);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 40px 0;
+  padding: 48px 0;
 }
 
+/* Layer 1: Client Trust */
 .title {
   text-align: center;
   font-family: var(--font-mono);
   color: var(--text-muted);
   font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 28px;
 }
 
-/* Option A — Compact Centered */
 .logosRow {
   display: flex;
   align-items: center;
@@ -26,13 +27,6 @@
 .logoItem {
   display: flex;
   align-items: center;
-  gap: 48px;
-}
-
-.separator {
-  width: 1px;
-  height: 24px;
-  background: var(--border);
 }
 
 .logoLink {
@@ -41,27 +35,27 @@
   justify-content: center;
   width: 160px;
   height: 52px;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg-card);
+  background: transparent;
+  border: none;
+  opacity: 0.65;
   transition: var(--transition);
   padding: 8px 16px;
 }
 
 .logoLink:hover {
-  border-color: var(--text-muted);
-  box-shadow: var(--shadow-sm);
+  opacity: 1;
 }
 
 .logoImage {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  filter: grayscale(100%);
   transition: var(--transition);
 }
 
 .logoLink:hover .logoImage {
-  filter: brightness(0.9);
+  filter: grayscale(0%);
 }
 
 .logoPlaceholder {
@@ -70,25 +64,73 @@
   justify-content: center;
   width: 160px;
   height: 52px;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg-card);
+  background: transparent;
+  border: none;
   color: var(--text-secondary);
   font-weight: 700;
   font-size: 0.9375rem;
   letter-spacing: -0.01em;
+  opacity: 0.65;
   transition: var(--transition);
 }
 
 .logoPlaceholder:hover {
-  border-color: var(--text-muted);
+  opacity: 1;
   color: var(--text);
-  box-shadow: var(--shadow-sm);
 }
 
+/* Separator between layers */
+.layerSeparator {
+  width: 120px;
+  height: 1px;
+  background: var(--border);
+  opacity: 0.4;
+  margin: 32px auto;
+}
+
+/* Layer 2: Technology Trust */
+.techLabel {
+  text-align: center;
+  font-family: var(--font-mono);
+  color: #9090a0;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.techLogosRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.techLogoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 32px;
+  opacity: 0.45;
+  transition: var(--transition);
+}
+
+.techLogoItem:hover {
+  opacity: 0.7;
+}
+
+.techLogoItem img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Metrics line */
 .metrics {
   text-align: center;
-  margin-top: 24px;
+  margin-top: 28px;
 }
 
 .metrics span {
@@ -99,14 +141,25 @@
 }
 
 /* Responsive */
+@media (max-width: 1023px) {
+  .techLogosRow { gap: 32px; }
+  .techLogoItem { width: 100px; height: 28px; }
+  .layerSeparator { width: 80px; }
+}
+
 @media (max-width: 768px) {
+  .section { padding: 32px 0; }
   .logosRow { gap: 24px; }
-  .logoItem { gap: 24px; }
-  .separator { display: none; }
   .logoLink { width: 140px; height: 46px; }
   .logoPlaceholder { width: 140px; height: 46px; font-size: 0.875rem; }
+  .techLogosRow { gap: 24px; }
+  .techLogoItem { width: 90px; height: 24px; }
+  .layerSeparator { width: 60px; margin: 24px auto; }
 }
 
 @media (max-width: 480px) {
-  .logosRow { flex-direction: column; gap: 16px; }
+  .logoLink { width: 130px; height: 42px; }
+  .logoPlaceholder { width: 130px; height: 42px; }
+  .techLogosRow { gap: 20px; }
+  .techLogoItem { width: 80px; height: 22px; }
 }

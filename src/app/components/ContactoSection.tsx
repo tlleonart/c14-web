@@ -86,7 +86,7 @@ export function ContactoSection() {
                   <div className={styles.errorBanner}>{submitError}</div>
                 )}
 
-                <form className={styles.form} onSubmit={handleSubmit}>
+                <form className={styles.form} onSubmit={handleSubmit} action="/contacto" method="POST">
                   <div className={styles.twoCol}>
                     <div>
                       <label htmlFor="contact-email" className={styles.label}>Email corporativo</label>

@@ -1,0 +1,63 @@
+.section {
+  padding: var(--section-py) 0;
+  background: var(--bg);
+}
+
+.heading {
+  font-size: var(--h2-size);
+  font-weight: var(--weight-h2);
+  letter-spacing: var(--ls-h2);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.list {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  border-bottom: 1px solid var(--border);
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.question:hover {
+  color: var(--primary);
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 0.22s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.answer {
+  padding: 0 0 20px;
+}
+
+.answer p {
+  font-size: var(--body-size);
+  line-height: 1.7;
+  color: var(--text-secondary);
+}

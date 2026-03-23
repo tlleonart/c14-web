@@ -1,4 +1,4 @@
-import { IconBox, IconBuilding, IconDocument, IconLink } from '@/shared/components/Icons/SectionIcons'
+import { IconBox, IconBuilding, IconDocument, IconLink, InlineInfo } from '@/shared/components/Icons/SectionIcons'
 import styles from './Agentes.module.css'
 
 const AGENTS = [
@@ -77,7 +77,7 @@ export function Agentes() {
         {/* Disclaimer badge */}
         <div className={styles.disclaimer}>
           <div className={styles.disclaimerBadge}>
-            <span className={styles.disclaimerIcon}>ℹ</span>
+            <InlineInfo className={styles.disclaimerIcon} />
             Arquitectura de ejemplo — cada solución se diseña a medida según tus procesos
           </div>
         </div>
