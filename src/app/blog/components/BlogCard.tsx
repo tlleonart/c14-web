@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { BlogPost } from '../types'
-import { CATEGORY_LABELS, CATEGORY_STYLES } from '../types'
+import { getCategoryStyle, getCategoryLabel } from '../types'
 import styles from './BlogCard.module.css'
 
 interface BlogCardProps {
@@ -8,7 +8,7 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post }: BlogCardProps) {
-  const categoryStyle = CATEGORY_STYLES[post.category]
+  const categoryStyle = getCategoryStyle(post.category)
 
   return (
     <Link href={`/blog/${post.slug}`} className={styles.card}>
@@ -26,7 +26,7 @@ export function BlogCard({ post }: BlogCardProps) {
             border: categoryStyle.border,
           }}
         >
-          {CATEGORY_LABELS[post.category]}
+          {getCategoryLabel(post.category)}
         </span>
         <h3 className={styles.title}>{post.title}</h3>
         <p className={styles.excerpt}>{post.excerpt}</p>

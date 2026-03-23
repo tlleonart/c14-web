@@ -3,7 +3,7 @@
 import { trpc } from '@/trpc/client'
 import { BlogCard } from './BlogCard'
 import type { BlogPost } from '../types'
-import { CATEGORY_LABELS, CATEGORY_STYLES } from '../types'
+import { getCategoryStyle, getCategoryLabel } from '../types'
 import styles from '../[slug]/page.module.css'
 
 function mapConvexToPost(item: {
@@ -64,7 +64,7 @@ export function BlogArticle({ slug }: BlogArticleProps) {
     })
     .slice(0, 3)
 
-  const categoryStyle = CATEGORY_STYLES[post.category] ?? CATEGORY_STYLES['ia-operativa']
+  const categoryStyle = getCategoryStyle(post.category)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -97,7 +97,7 @@ export function BlogArticle({ slug }: BlogArticleProps) {
               border: categoryStyle.border,
             }}
           >
-            {CATEGORY_LABELS[post.category] ?? post.category}
+            {getCategoryLabel(post.category)}
           </span>
           <h1 className={styles.title}>{post.title}</h1>
           <p className={styles.subtitle}>{post.excerpt}</p>
