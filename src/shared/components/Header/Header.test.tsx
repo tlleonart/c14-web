@@ -7,6 +7,12 @@ vi.mock('@/shared/hooks/useActiveSection', () => ({
   useActiveSection: () => 'problema',
 }))
 
+// Mock next/navigation
+vi.mock('next/navigation', () => ({
+  usePathname: () => '/',
+  useRouter: () => ({ push: vi.fn() }),
+}))
+
 describe('Header', () => {
   beforeEach(() => {
     // Reset body overflow

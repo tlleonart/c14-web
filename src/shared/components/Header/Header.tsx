@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
 import { useActiveSection } from '@/shared/hooks/useActiveSection'
 import styles from './Header.module.css'
 
@@ -16,6 +17,9 @@ const NAV_LINKS: { href: string; label: string; external?: boolean }[] = [
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const activeSection = useActiveSection()
+  const pathname = usePathname()
+  const router = useRouter()
+  const isHome = pathname === '/'
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : ''
@@ -30,26 +34,37 @@ export function Header() {
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       e.preventDefault()
       closeMenu()
+
+      if (href === '#top') {
+        if (isHome) {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        } else {
+          router.push('/')
+        }
+        return
+      }
+
       const id = href.replace('#', '')
-      const element = document.getElementById(id)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
+
+      if (isHome) {
+        const element = document.getElementById(id)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      } else {
+        router.push(`/#${id}`)
       }
     },
-    [closeMenu]
+    [closeMenu, isHome, router]
   )
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <a
-          href="#top"
-          className={styles.logo}
-          onClick={(e) => handleNavClick(e, '#top')}
-        >
+        <Link href="/" className={styles.logo}>
           <span className={styles.logoText}>Carbono</span>
           <span className={styles.logoAccent}>14</span>
-        </a>
+        </Link>
 
         <nav className={styles.nav}>
           {NAV_LINKS.map((link) =>
@@ -60,9 +75,9 @@ export function Header() {
             ) : (
               <a
                 key={link.href}
-                href={link.href}
+                href={isHome ? link.href : `/${link.href}`}
                 className={`${styles.navLink} ${
-                  activeSection === link.href.replace('#', '') ? styles.navLinkActive : ''
+                  isHome && activeSection === link.href.replace('#', '') ? styles.navLinkActive : ''
                 }`}
                 onClick={(e) => handleNavClick(e, link.href)}
               >
@@ -74,7 +89,7 @@ export function Header() {
 
         <div className={styles.ctaGroup}>
           <a
-            href="#contacto"
+            href={isHome ? '#contacto' : '/#contacto'}
             className={styles.ctaButton}
             onClick={(e) => handleNavClick(e, '#contacto')}
           >
@@ -95,10 +110,10 @@ export function Header() {
       {isMenuOpen && (
         <div className={styles.overlay}>
           <div className={styles.overlayHeader}>
-            <a href="#top" className={styles.logo} onClick={(e) => handleNavClick(e, '#top')}>
+            <Link href="/" className={styles.logo} onClick={closeMenu}>
               <span className={styles.logoText}>Carbono</span>
               <span className={styles.logoAccent}>14</span>
-            </a>
+            </Link>
             <button
               className={styles.closeButton}
               onClick={closeMenu}
@@ -119,7 +134,7 @@ export function Header() {
               ) : (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={isHome ? link.href : `/${link.href}`}
                   className={styles.overlayLink}
                   onClick={(e) => handleNavClick(e, link.href)}
                 >
@@ -129,7 +144,7 @@ export function Header() {
             )}
           </nav>
           <a
-            href="#contacto"
+            href={isHome ? '#contacto' : '/#contacto'}
             className={styles.overlayCta}
             onClick={(e) => handleNavClick(e, '#contacto')}
           >
