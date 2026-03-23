@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'different-raccoon-272.convex.cloud',
+        hostname: 'unique-ocelot-316.convex.cloud',
       },
     ],
   },
@@ -28,8 +28,8 @@ const nextConfig: NextConfig = {
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com",
               "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: https://different-raccoon-272.convex.cloud https://www.google-analytics.com https://www.googletagmanager.com",
-              "connect-src 'self' https://different-raccoon-272.convex.cloud wss://different-raccoon-272.convex.cloud https://www.google-analytics.com https://www.googletagmanager.com",
+              "img-src 'self' data: https://unique-ocelot-316.convex.cloud https://www.google-analytics.com https://www.googletagmanager.com",
+              "connect-src 'self' https://unique-ocelot-316.convex.cloud wss://unique-ocelot-316.convex.cloud https://www.google-analytics.com https://www.googletagmanager.com",
               "font-src 'self'",
             ].join('; '),
           },
