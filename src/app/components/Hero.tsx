@@ -27,7 +27,8 @@ export function Hero() {
           alt=""
           fill
           sizes="100vw"
-          quality={30}
+          quality={20}
+          loading="lazy"
           className={styles.bgImageImg}
         />
       </div>
@@ -101,7 +102,8 @@ export function Hero() {
           alt=""
           fill
           priority
-          sizes="42vw"
+          sizes="(max-width: 1024px) 0px, 42vw"
+          quality={60}
           className={styles.panelImage}
         />
         <div className={styles.panelGradient} />
