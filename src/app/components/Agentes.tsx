@@ -1,3 +1,4 @@
+import { IconBox, IconBuilding, IconDocument, IconLink } from '@/shared/components/Icons/SectionIcons'
 import styles from './Agentes.module.css'
 
 const AGENTS = [
@@ -6,8 +7,8 @@ const AGENTS = [
     title: 'Inventario',
     description:
       'Monitoreo en tiempo real de stock, alertas predictivas de reposición y gestión automática de órdenes de compra.',
-    specs: ['Capacidad escalable', 'Sync configurable'],
-    icon: '📦',
+    specs: ['Alertas antes del quiebre de stock', 'Reglas de reposición configurables'],
+    icon: <IconBox className={styles.iconSvg} />,
     gradient: 'linear-gradient(90deg, var(--primary), #f07060)',
     codeColor: 'var(--primary)',
     iconBg: 'var(--primary-light)',
@@ -19,8 +20,8 @@ const AGENTS = [
     title: 'Financiero',
     description:
       'Validación de presupuestos, control de gastos y reportes financieros automatizados con trazabilidad completa.',
-    specs: ['Audit log inmutable', 'Reglas configurables'],
-    icon: '🏦',
+    specs: ['Conciliación con trazabilidad completa', 'Cada movimiento auditable'],
+    icon: <IconBuilding className={styles.iconSvg} />,
     gradient: 'linear-gradient(90deg, var(--secondary), #5068cc)',
     codeColor: 'var(--secondary)',
     iconBg: 'rgba(45, 58, 140, 0.1)',
@@ -32,8 +33,8 @@ const AGENTS = [
     title: 'Documentación',
     description:
       'Generación automática de documentos estructurados: contratos, informes, compliance docs, con plantillas auditables.',
-    specs: ['Generación automatizada', 'Formatos configurables'],
-    icon: '📄',
+    specs: ['Documentos con plantillas auditables', 'Sin variaciones sobre el estándar'],
+    icon: <IconDocument className={styles.iconSvg} />,
     gradient: 'linear-gradient(90deg, #2a7a4a, #40aa6a)',
     codeColor: '#2a7a4a',
     iconBg: 'rgba(42, 122, 74, 0.1)',
@@ -45,8 +46,8 @@ const AGENTS = [
     title: 'Orquestador',
     description:
       'El cerebro central. Coordina todos los agentes, gestiona dependencias y garantiza ejecución en el orden correcto.',
-    specs: ['Multi-agent routing', 'Error handling total'],
-    icon: '🔗',
+    specs: ['Escalamiento al humano correcto', 'Sabe a quién escalar y por qué'],
+    icon: <IconLink className={styles.iconSvg} />,
     gradient: 'linear-gradient(90deg, var(--primary), #ff6050)',
     codeColor: '#ff8a7a',
     iconBg: 'rgba(212, 64, 48, 0.2)',
@@ -108,7 +109,7 @@ export function Agentes() {
                   borderColor: agent.iconBorder,
                 }}
               >
-                <span className={styles.iconEmoji}>{agent.icon}</span>
+                {agent.icon}
               </div>
               <h3
                 className={styles.cardTitle}
@@ -184,8 +185,10 @@ export function Agentes() {
 
         {/* CTA */}
         <div className={styles.sectionCta}>
-          <a href="#contacto" className="btn btn-primary">
-            Analizar mis procesos automatizables
+          <h3 className={styles.sectionCtaHeading}>Ya viste lo que podemos construir.</h3>
+          <p className={styles.sectionCtaSubcopy}>¿Cuáles de tus procesos están listos para IA operativa?</p>
+          <a href="#contacto" className="btn btn-primary" aria-label="Ir al formulario para descubrir qué automatizar">
+            Descubrí qué automatizar
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />

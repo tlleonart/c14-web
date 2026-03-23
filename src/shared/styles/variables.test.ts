@@ -23,7 +23,7 @@ describe('Design Tokens — variables.css', () => {
       ['--bg-card', '#ffffff'],
       ['--text', '#1c1c1e'],
       ['--text-secondary', '#555558'],
-      ['--text-muted', '#707075'],
+      ['--text-muted', '#646468'],
       ['--text-on-dark', '#e8e8f0'],
       ['--text-on-dark-muted', '#9090b0'],
       ['--border', '#e2ddd8'],
@@ -178,13 +178,13 @@ describe('Design Tokens — variables.css', () => {
     )
 
     it('--text-muted on --bg meets 4.5:1 ratio (WCAG AA)', () => {
-      const ratio = contrastRatio('#707075', '#fafaf8')
+      const ratio = contrastRatio('#646468', '#fafaf8')
       expect(ratio).toBeGreaterThanOrEqual(4.5)
     })
 
-    it('--text-muted on --bg-warm meets 3:1 ratio (large text)', () => {
-      const ratio = contrastRatio('#707075', '#f0ece6')
-      expect(ratio).toBeGreaterThanOrEqual(3.0)
+    it('--text-muted on --bg-warm meets 4.5:1 ratio (WCAG AA)', () => {
+      const ratio = contrastRatio('#646468', '#f0ece6')
+      expect(ratio).toBeGreaterThanOrEqual(4.5)
     })
   })
 })

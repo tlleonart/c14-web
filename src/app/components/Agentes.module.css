@@ -120,8 +120,22 @@
   position: relative;
 }
 
-.iconEmoji {
-  font-size: 22px;
+.iconSvg {
+  width: 22px;
+  height: 22px;
+}
+
+.iconSvg path,
+.iconSvg circle,
+.iconSvg rect,
+.iconSvg line,
+.iconSvg polyline,
+.iconSvg polygon {
+  stroke: #ff8a7a;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .cardTitle {
@@ -231,6 +245,19 @@
 .sectionCta {
   text-align: center;
   margin-top: 40px;
+}
+
+.sectionCtaHeading {
+  font-size: var(--h3-size);
+  font-weight: var(--weight-h3);
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.sectionCtaSubcopy {
+  font-size: var(--body-size);
+  color: var(--text-secondary);
+  margin-bottom: 24px;
 }
 
 /* Responsive */

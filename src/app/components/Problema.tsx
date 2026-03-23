@@ -1,3 +1,4 @@
+import { IconScale, IconShield, IconClipboard } from '@/shared/components/Icons/SectionIcons'
 import styles from './Problema.module.css'
 
 const CRITERIA = [
@@ -11,19 +12,19 @@ const CRITERIA = [
 
 const BENEFITS = [
   {
-    icon: '⚖️',
+    icon: <IconScale className={styles.iconSvg} />,
     title: 'Reglas de negocio explícitas',
     description:
       'Cada decisión del agente está regida por reglas configuradas y validadas por el equipo del cliente. Sin caja negra.',
   },
   {
-    icon: '🛡️',
+    icon: <IconShield className={styles.iconSvg} />,
     title: 'Validación humana en el loop',
     description:
       'Los puntos de decisión críticos pueden requerir aprobación humana antes de ejecutar. Control granular sobre la autonomía.',
   },
   {
-    icon: '📋',
+    icon: <IconClipboard className={styles.iconSvg} />,
     title: 'Historial completo de ejecución',
     description:
       'Cada acción queda registrada con timestamp, contexto, inputs y outputs. Completamente auditable ante reguladores.',

@@ -18,7 +18,7 @@
   /* Colors — Text */
   --text: #1c1c1e;
   --text-secondary: #555558;
-  --text-muted: #707075;
+  --text-muted: #646468;
   --text-on-dark: #e8e8f0;
   --text-on-dark-muted: #9090b0;
 
@@ -31,7 +31,7 @@
   --error: #d44030;
   --warning: #f5a623;
   --info: #5b8dd9;
-  --neutral: #707075;
+  --neutral: #646468;
   --coral: #ff8a7a;
   --blue-label: #7b8ed4;
 

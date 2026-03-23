@@ -38,7 +38,7 @@ describe('Agentes', () => {
 
   it('renders bottom CTA', () => {
     render(<Agentes />)
-    expect(screen.getByText(/Analizar mis procesos/)).toBeInTheDocument()
+    expect(screen.getByText(/Descubrí qué automatizar/)).toBeInTheDocument()
   })
 
   it('has section with id="agentes"', () => {

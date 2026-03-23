@@ -24,8 +24,8 @@ describe('Header', () => {
     expect(screen.getByText('El problema')).toBeInTheDocument()
     expect(screen.getByText('Agentes')).toBeInTheDocument()
     expect(screen.getByText('Metodología')).toBeInTheDocument()
-    expect(screen.getByText('Gobernanza')).toBeInTheDocument()
-    expect(screen.getByText('Clientes')).toBeInTheDocument()
+    expect(screen.getByText('Seguridad')).toBeInTheDocument()
+    expect(screen.getByText('Blog')).toBeInTheDocument()
   })
 
   it('renders CTA button "Hablemos"', () => {

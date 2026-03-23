@@ -165,7 +165,24 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 18px;
+}
+
+.iconSvg {
+  width: 20px;
+  height: 20px;
+}
+
+.iconSvg path,
+.iconSvg circle,
+.iconSvg rect,
+.iconSvg line,
+.iconSvg polyline,
+.iconSvg polygon {
+  stroke: #ff8a7a;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .benefitTitle {

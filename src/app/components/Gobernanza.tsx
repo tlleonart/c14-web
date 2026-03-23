@@ -1,10 +1,11 @@
+import { IconCheck, IconScale, IconShield, IconChart } from '@/shared/components/Icons/SectionIcons'
 import styles from './Gobernanza.module.css'
 
 const CARDS = [
-  { icon: '✅', title: 'Trazabilidad completa', description: 'Cada acción de cada agente queda registrada en un log inmutable. Saber quién decidió qué, cuándo y por qué — siempre.' },
-  { icon: '⚖️', title: 'Reglas auditables', description: 'Las reglas de negocio son explícitas, documentadas y revisables por tu equipo legal o de compliance en cualquier momento.' },
-  { icon: '🛡️', title: 'Rollback instantáneo', description: 'Si algo sale mal, cada operación puede revertirse. Diseñamos cada agente con capacidades de rollback y recuperación de estado.' },
-  { icon: '📊', title: 'Monitoreo configurable', description: 'Diseñamos el monitoreo según tus requerimientos — alertas, métricas y health checks.' },
+  { icon: <IconCheck className={styles.iconSvg} />, title: 'Trazabilidad completa', description: 'Cada acción de cada agente queda registrada en un log inmutable. Saber quién decidió qué, cuándo y por qué — siempre.' },
+  { icon: <IconScale className={styles.iconSvg} />, title: 'Reglas auditables', description: 'Las reglas de negocio son explícitas, documentadas y revisables por tu equipo legal o de compliance en cualquier momento.' },
+  { icon: <IconShield className={styles.iconSvg} />, title: 'Rollback instantáneo', description: 'Si algo sale mal, cada operación puede revertirse. Diseñamos cada agente con capacidades de rollback y recuperación de estado.' },
+  { icon: <IconChart className={styles.iconSvg} />, title: 'Monitoreo configurable', description: 'Diseñamos el monitoreo según tus requerimientos — alertas, métricas y health checks.' },
 ]
 
 const COMPLIANCE = [
@@ -32,7 +33,7 @@ export function Gobernanza() {
           {CARDS.map((card) => (
             <div key={card.title} className={styles.card}>
               <div className={styles.iconBox}>
-                <span className={styles.iconEmoji}>{card.icon}</span>
+                {card.icon}
               </div>
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardDescription}>{card.description}</p>

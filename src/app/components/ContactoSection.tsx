@@ -89,8 +89,9 @@ export function ContactoSection() {
                 <form className={styles.form} onSubmit={handleSubmit}>
                   <div className={styles.twoCol}>
                     <div>
-                      <label className={styles.label}>Email corporativo</label>
+                      <label htmlFor="contact-email" className={styles.label}>Email corporativo</label>
                       <input
+                        id="contact-email"
                         type="email"
                         name="email"
                         placeholder="tu@empresa.com"
@@ -103,8 +104,9 @@ export function ContactoSection() {
                       {errors.email && <span className={styles.fieldError}>{errors.email}</span>}
                     </div>
                     <div>
-                      <label className={styles.label}>Empresa</label>
+                      <label htmlFor="contact-company" className={styles.label}>Empresa</label>
                       <input
+                        id="contact-company"
                         type="text"
                         name="company"
                         placeholder="Nombre de tu empresa"
@@ -118,8 +120,9 @@ export function ContactoSection() {
                     </div>
                   </div>
                   <div>
-                    <label className={styles.label}>¿Qué proceso querés validar?</label>
+                    <label htmlFor="contact-message" className={styles.label}>¿Qué proceso querés validar?</label>
                     <textarea
+                      id="contact-message"
                       name="message"
                       rows={3}
                       placeholder="Describí en una línea el proceso que querés automatizar."

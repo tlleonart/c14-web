@@ -5,12 +5,12 @@ import Link from 'next/link'
 import { useActiveSection } from '@/shared/hooks/useActiveSection'
 import styles from './Header.module.css'
 
-const NAV_LINKS = [
+const NAV_LINKS: { href: string; label: string; external?: boolean }[] = [
   { href: '#problema', label: 'El problema' },
   { href: '#agentes', label: 'Agentes' },
   { href: '#metodologia', label: 'Metodología' },
-  { href: '#gobernanza', label: 'Gobernanza' },
-  { href: '#clientes', label: 'Clientes' },
+  { href: '#gobernanza', label: 'Seguridad' },
+  { href: '/blog', label: 'Blog', external: true },
 ]
 
 export function Header() {
@@ -52,18 +52,24 @@ export function Header() {
         </a>
 
         <nav className={styles.nav}>
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`${styles.navLink} ${
-                activeSection === link.href.replace('#', '') ? styles.navLinkActive : ''
-              }`}
-              onClick={(e) => handleNavClick(e, link.href)}
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.external ? (
+              <Link key={link.href} href={link.href} className={styles.navLink}>
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`${styles.navLink} ${
+                  activeSection === link.href.replace('#', '') ? styles.navLinkActive : ''
+                }`}
+                onClick={(e) => handleNavClick(e, link.href)}
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </nav>
 
         <div className={styles.ctaGroup}>
@@ -105,16 +111,22 @@ export function Header() {
             </button>
           </div>
           <nav className={styles.overlayNav}>
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={styles.overlayLink}
-                onClick={(e) => handleNavClick(e, link.href)}
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.external ? (
+                <Link key={link.href} href={link.href} className={styles.overlayLink} onClick={closeMenu}>
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={styles.overlayLink}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                >
+                  {link.label}
+                </a>
+              )
+            )}
           </nav>
           <a
             href="#contacto"

@@ -33,6 +33,7 @@ const nextConfig: NextConfig = {
               "font-src 'self'",
             ].join('; '),
           },
+          { key: 'X-XSS-Protection', value: '1; mode=block' },
           { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
         ],
       },

@@ -15,7 +15,7 @@ describe('PreFooterCta', () => {
 
   it('renders CTA button linking to #contacto', () => {
     render(<PreFooterCta />)
-    const cta = screen.getByText('Validar mi proceso')
+    const cta = screen.getByText('Hablemos de tu caso')
     expect(cta).toBeInTheDocument()
     expect(cta.closest('a')).toHaveAttribute('href', '#contacto')
   })

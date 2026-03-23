@@ -13,6 +13,7 @@ import { Gobernanza } from './components/Gobernanza'
 import { PorQue } from './components/PorQue'
 import { ContactoSection } from './components/ContactoSection'
 import { PreFooterCta } from './components/PreFooterCta'
+import { InlineNewsletter } from './components/InlineNewsletter'
 import { FadeIn } from '@/shared/components/FadeIn'
 import styles from './page.module.css'
 
@@ -49,10 +50,11 @@ export default function Home() {
     <div className={styles.page}>
       <ScrollProgress />
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <FadeIn><SocialProof /></FadeIn>
         <FadeIn><Problema /></FadeIn>
+        <FadeIn><InlineNewsletter /></FadeIn>
         <FadeIn><Agentes /></FadeIn>
         <FadeIn><Metodologia /></FadeIn>
         <FadeIn><Gobernanza /></FadeIn>

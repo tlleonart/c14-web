@@ -20,9 +20,9 @@ describe('Hero', () => {
     expect(screen.getByText(/IA OPERATIVA.*BUENOS AIRES.*EST\. 2026/)).toBeInTheDocument()
   })
 
-  it('renders the subheadline with "determinismo completo"', () => {
+  it('renders the subheadline with "reglas claras"', () => {
     render(<Hero />)
-    expect(screen.getByText(/determinismo completo/)).toBeInTheDocument()
+    expect(screen.getByText(/reglas claras/)).toBeInTheDocument()
   })
 
   it('renders primary CTA "Validar mi proceso"', () => {

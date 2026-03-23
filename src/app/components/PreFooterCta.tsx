@@ -13,8 +13,8 @@ export function PreFooterCta() {
             Validamos tu proceso en menos de 48 horas — sin compromiso
           </p>
         </div>
-        <a href="#contacto" className={styles.ctaButton}>
-          Validar mi proceso
+        <a href="#contacto" className={styles.ctaButton} aria-label="Ir al formulario de contacto">
+          Hablemos de tu caso
         </a>
       </div>
     </section>

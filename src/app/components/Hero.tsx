@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from './Hero.module.css'
 
 const TRUST_INDICATORS = [
@@ -20,7 +21,16 @@ export function Hero() {
   return (
     <section className={styles.hero} id="top">
       {/* Background image overlay */}
-      <div className={styles.bgImage} aria-hidden="true" />
+      <div className={styles.bgImage} aria-hidden="true">
+        <Image
+          src="/images/hero-geometric.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          quality={30}
+          className={styles.bgImageImg}
+        />
+      </div>
       {/* Gradient overlays */}
       <div className={styles.gradientOverlay} aria-hidden="true" />
       {/* Decorative grid */}
@@ -45,10 +55,9 @@ export function Hero() {
 
           {/* Subheadline */}
           <p className={styles.subheadline}>
-            Diseñamos e implementamos arquitecturas de agentes autónomos con{' '}
-            <strong className={styles.subheadlineStrong}>determinismo completo</strong>,
-            trazabilidad total y gobernanza empresarial. Validación gratuita
-            en menos de 48&nbsp;horas.
+            Automatizamos tus procesos operativos con IA que ejecuta con{' '}
+            <strong className={styles.subheadlineStrong}>reglas claras</strong>,
+            resultados verificables y control total.
           </p>
 
           {/* Audience qualifier */}
@@ -87,10 +96,12 @@ export function Hero() {
 
       {/* Hero image panel - desktop only */}
       <div className={styles.imagePanel} aria-hidden="true">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/images/hero-geometric.jpg"
           alt=""
+          fill
+          priority
+          sizes="42vw"
           className={styles.panelImage}
         />
         <div className={styles.panelGradient} />

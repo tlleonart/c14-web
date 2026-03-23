@@ -91,6 +91,7 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body>
+        <a href="#main-content" className="skip-nav">Saltar al contenido</a>
         <Providers>{children}</Providers>
       </body>
     </html>
