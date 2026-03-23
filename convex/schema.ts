@@ -34,4 +34,38 @@ export default defineSchema({
     url: v.string(),
     displayOrder: v.number(),
   }).index('by_displayOrder', ['displayOrder']),
+
+  content: defineTable({
+    title: v.string(),
+    slug: v.string(),
+    type: v.union(
+      v.literal('blog_post'),
+      v.literal('linkedin_post'),
+      v.literal('email'),
+      v.literal('white_paper'),
+      v.literal('case_study'),
+    ),
+    status: v.union(
+      v.literal('idea'),
+      v.literal('draft'),
+      v.literal('in_review'),
+      v.literal('approved'),
+      v.literal('scheduled'),
+      v.literal('published'),
+      v.literal('archived'),
+    ),
+    body: v.optional(v.string()),
+    summary: v.optional(v.string()),
+    author: v.string(),
+    approvedBy: v.optional(v.string()),
+    tags: v.optional(v.array(v.string())),
+    category: v.optional(v.string()),
+    publishedAt: v.optional(v.number()),
+    scheduledAt: v.optional(v.number()),
+    version: v.number(),
+  })
+    .index('by_status', ['status'])
+    .index('by_type', ['type'])
+    .index('by_type_status', ['type', 'status'])
+    .index('by_slug', ['slug']),
 })

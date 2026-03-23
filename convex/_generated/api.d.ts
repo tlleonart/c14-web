@@ -10,6 +10,7 @@
 
 import type * as clients from "../clients.js";
 import type * as contacts from "../contacts.js";
+import type * as content from "../content.js";
 import type * as newsletter from "../newsletter.js";
 
 import type {
@@ -21,6 +22,7 @@ import type {
 declare const fullApi: ApiFromModules<{
   clients: typeof clients;
   contacts: typeof contacts;
+  content: typeof content;
   newsletter: typeof newsletter;
 }>;
 

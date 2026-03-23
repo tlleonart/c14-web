@@ -1,9 +1,18 @@
-import { getAllPosts } from '../data'
+import { convex } from '@/server/convex/client'
+import { api } from '../../../../convex/_generated/api'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://carbono-14.net'
 
 export async function GET() {
-  const posts = getAllPosts()
+  let posts: { slug: string; title: string; summary?: string | null; author: string; publishedAt?: number | null; category?: string | null }[] = []
+
+  if (convex) {
+    try {
+      posts = await convex.query(api.content.listPublished)
+    } catch {
+      posts = []
+    }
+  }
 
   const items = posts
     .map(
@@ -12,10 +21,10 @@ export async function GET() {
       <title><![CDATA[${post.title}]]></title>
       <link>${siteUrl}/blog/${post.slug}</link>
       <guid isPermaLink="true">${siteUrl}/blog/${post.slug}</guid>
-      <description><![CDATA[${post.excerpt}]]></description>
-      <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
+      <description><![CDATA[${post.summary ?? ''}]]></description>
+      <pubDate>${post.publishedAt ? new Date(post.publishedAt).toUTCString() : new Date().toUTCString()}</pubDate>
       <author>contacto@carbono-14.net (${post.author})</author>
-      <category>${post.category}</category>
+      ${post.category ? `<category>${post.category}</category>` : ''}
     </item>`
     )
     .join('')

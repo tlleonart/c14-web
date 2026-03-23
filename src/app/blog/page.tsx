@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Header } from '@/shared/components/Header'
 import { Footer } from '@/shared/components/Footer'
-import { getAllPosts } from './data'
-import { BlogCard } from './components/BlogCard'
+import { BlogList } from './components/BlogList'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -24,8 +23,6 @@ export const metadata: Metadata = {
 }
 
 export default function BlogPage() {
-  const posts = getAllPosts()
-
   return (
     <div className={styles.page}>
       <Header />
@@ -42,22 +39,7 @@ export default function BlogPage() {
 
         <section className={styles.content}>
           <div className="container">
-            {posts.length > 0 ? (
-              <div className={styles.grid}>
-                {posts.map((post) => (
-                  <BlogCard key={post.slug} post={post} />
-                ))}
-              </div>
-            ) : (
-              <div className={styles.empty}>
-                <p className={styles.emptyText}>
-                  Estamos preparando nuestros primeros artículos.
-                </p>
-                <p className={styles.emptySubtext}>
-                  Suscribite al newsletter para ser el primero en leerlos.
-                </p>
-              </div>
-            )}
+            <BlogList />
           </div>
         </section>
       </main>
