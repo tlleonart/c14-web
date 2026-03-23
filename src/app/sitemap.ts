@@ -1,25 +1,35 @@
 import type { MetadataRoute } from 'next'
-import { getAllPosts } from './blog/data'
+import { convex } from '@/server/convex/client'
+import { api } from '../../convex/_generated/api'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://carbono-14.net'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getAllPosts()
-
-  const blogEntries: MetadataRoute.Sitemap = [
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  let blogEntries: MetadataRoute.Sitemap = [
     {
       url: `${siteUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    ...posts.map((post) => ({
-      url: `${siteUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.publishedAt),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
   ]
+
+  if (convex) {
+    try {
+      const posts = await convex.query(api.content.listPublished)
+      blogEntries = [
+        ...blogEntries,
+        ...posts.map((post) => ({
+          url: `${siteUrl}/blog/${post.slug}`,
+          lastModified: post.publishedAt ? new Date(post.publishedAt) : new Date(),
+          changeFrequency: 'monthly' as const,
+          priority: 0.7,
+        })),
+      ]
+    } catch {
+      // Convex unavailable — static pages only
+    }
+  }
 
   return [
     {

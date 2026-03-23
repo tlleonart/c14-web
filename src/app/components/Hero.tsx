@@ -27,7 +27,7 @@ export function Hero() {
           alt=""
           fill
           sizes="100vw"
-          quality={20}
+          quality={35}
           loading="lazy"
           className={styles.bgImageImg}
         />

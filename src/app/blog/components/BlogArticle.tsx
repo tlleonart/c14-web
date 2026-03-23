@@ -39,6 +39,33 @@ export function BlogArticle({ slug }: BlogArticleProps) {
   const { data: rawPost, isLoading } = trpc.blog.getBySlug.useQuery({ slug })
   const { data: rawAllPosts } = trpc.blog.listPublished.useQuery()
 
+  // All hooks MUST be called before any conditional return (Rules of Hooks)
+  const contentHtml = useMemo(() => {
+    if (!rawPost?.body) return ''
+    try {
+      const result = marked.parse(rawPost.body, { async: false })
+      return typeof result === 'string' ? result : ''
+    } catch {
+      return ''
+    }
+  }, [rawPost?.body])
+
+  const post = useMemo(() => (rawPost ? mapConvexToPost(rawPost) : null), [rawPost])
+
+  const relatedPosts = useMemo(() => {
+    if (!post) return []
+    return (rawAllPosts ?? [])
+      .map(mapConvexToPost)
+      .filter((p) => p.slug !== slug)
+      .sort((a, b) => {
+        const aMatch = a.category === post.category ? 1 : 0
+        const bMatch = b.category === post.category ? 1 : 0
+        return bMatch - aMatch
+      })
+      .slice(0, 3)
+  }, [rawAllPosts, post, slug])
+
+  // Conditional returns AFTER all hooks
   if (isLoading) {
     return (
       <div style={{ textAlign: 'center', padding: '120px 0' }}>
@@ -47,7 +74,7 @@ export function BlogArticle({ slug }: BlogArticleProps) {
     )
   }
 
-  if (!rawPost) {
+  if (!post) {
     return (
       <div style={{ textAlign: 'center', padding: '120px 0' }}>
         <p>Artículo no encontrado.</p>
@@ -55,47 +82,11 @@ export function BlogArticle({ slug }: BlogArticleProps) {
     )
   }
 
-  const post = mapConvexToPost(rawPost)
-  const allPosts = (rawAllPosts ?? []).map(mapConvexToPost)
-  const relatedPosts = allPosts
-    .filter((p) => p.slug !== slug)
-    .sort((a, b) => {
-      const aMatch = a.category === post.category ? 1 : 0
-      const bMatch = b.category === post.category ? 1 : 0
-      return bMatch - aMatch
-    })
-    .slice(0, 3)
-
   const categoryStyle = getCategoryStyle(post.category)
 
-  // Parse Markdown content to HTML — content is authored by Alexia (internal),
-  // not user-generated. If source changes to user input, add DOMPurify.
-  const contentHtml = useMemo(() => {
-    if (!post.content) return ''
-    return marked.parse(post.content, { async: false }) as string
-  }, [post.content])
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: post.title,
-    description: post.excerpt,
-    author: { '@type': 'Organization', name: post.author },
-    publisher: { '@type': 'Organization', name: 'Carbono14', url: 'https://carbono-14.net' },
-    datePublished: post.publishedAt,
-    url: `https://carbono-14.net/blog/${post.slug}`,
-    mainEntityOfPage: `https://carbono-14.net/blog/${post.slug}`,
-  }
-
-  // Content is authored internally by Carbono14 team (Alexia agent), not user-generated.
-  // If content source changes to user input, add DOMPurify sanitization.
+  // JSON-LD rendered server-side in [slug]/page.tsx for crawlers
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       <header className={styles.articleHeader}>
         <div className="container">
           <span
