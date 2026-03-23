@@ -1,5 +1,7 @@
 'use client'
 
+import { useMemo } from 'react'
+import { marked } from 'marked'
 import { trpc } from '@/trpc/client'
 import { BlogCard } from './BlogCard'
 import type { BlogPost } from '../types'
@@ -66,6 +68,13 @@ export function BlogArticle({ slug }: BlogArticleProps) {
 
   const categoryStyle = getCategoryStyle(post.category)
 
+  // Parse Markdown content to HTML — content is authored by Alexia (internal),
+  // not user-generated. If source changes to user input, add DOMPurify.
+  const contentHtml = useMemo(() => {
+    if (!post.content) return ''
+    return marked.parse(post.content, { async: false }) as string
+  }, [post.content])
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -120,7 +129,7 @@ export function BlogArticle({ slug }: BlogArticleProps) {
       <article className={styles.article}>
         <div
           className={styles.prose}
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </article>
 
