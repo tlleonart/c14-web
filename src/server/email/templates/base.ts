@@ -48,7 +48,8 @@ export function buildEmailHtml({ previewText = '', body }: BaseEmailOptions): st
           <tr>
             <td style="padding:24px 40px;border-top:1px solid #eaeaea;background-color:#fafaf8;">
               <p style="margin:0 0 8px 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#868690;line-height:1.5;">Carbono14 &mdash; IA Operativa para Empresas &mdash; <a href="https://carbono-14.net" style="color:#868690;text-decoration:none;">carbono-14.net</a></p>
-              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#b0b0ba;"><a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#b0b0ba;text-decoration:underline;">Darse de baja</a></p>
+              <!-- INTERIM FIX (TASK-A06): Resend unsubscribe placeholder only works in Broadcasts, not transactional API emails. Replaced with static contact page. TODO: implement /api/unsubscribe?token=... endpoint for proper one-click unsubscribe -->
+              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#b0b0ba;"><a href="https://carbono-14.net/contacto" style="color:#b0b0ba;text-decoration:underline;">Darse de baja</a></p>
             </td>
           </tr>
         </table>

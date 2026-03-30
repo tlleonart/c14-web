@@ -68,4 +68,36 @@ export default defineSchema({
     .index('by_type', ['type'])
     .index('by_type_status', ['type', 'status'])
     .index('by_slug', ['slug']),
+
+  leads: defineTable({
+    name: v.string(),
+    email: v.string(),
+    company: v.optional(v.string()),
+    phone: v.optional(v.string()),
+    source: v.union(
+      v.literal('lp-001'),
+      v.literal('lp-002'),
+      v.literal('lp-003'),
+    ),
+    status: v.union(
+      v.literal('new'),
+      v.literal('contacted'),
+      v.literal('qualified'),
+      v.literal('proposal'),
+      v.literal('closed-won'),
+      v.literal('closed-lost'),
+    ),
+    assignedTo: v.optional(v.string()),
+    notes: v.optional(v.string()),
+    bant: v.optional(v.object({
+      budget: v.optional(v.string()),
+      authority: v.optional(v.string()),
+      need: v.optional(v.string()),
+      timeline: v.optional(v.string()),
+    })),
+    createdAt: v.number(),
+  })
+    .index('by_status', ['status'])
+    .index('by_source', ['source'])
+    .index('by_createdAt', ['createdAt']),
 })

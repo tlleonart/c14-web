@@ -9,6 +9,7 @@ const captureAuditoriaSchema = z.object({
   fullName: z.string().min(2, 'El nombre es obligatorio'),
   email: z.string().email('Email inválido'),
   company: z.string().min(1, 'La empresa es obligatoria'),
+  website: z.string().optional(),
 })
 
 const captureIaOperativaSchema = z.object({
@@ -18,6 +19,7 @@ const captureIaOperativaSchema = z.object({
   role: z.string().optional(),
   industry: z.string().optional(),
   processDescription: z.string().max(500).optional(),
+  website: z.string().optional(),
 })
 
 const captureWhitePaperSchema = z.object({
@@ -25,19 +27,21 @@ const captureWhitePaperSchema = z.object({
   email: z.string().email('Email inválido'),
   company: z.string().min(1, 'La empresa es obligatoria'),
   role: z.string().min(1, 'El cargo es obligatorio'),
+  website: z.string().optional(),
 })
 
 export const leadRouter = router({
   captureAuditoria: publicProcedure
     .input(captureAuditoriaSchema)
     .mutation(async ({ input }) => {
+      if (input.website) return { success: true }
+
       if (convex) {
         try {
-          await convex.mutation(api.contacts.create, {
+          await convex.mutation(api.leads.create, {
             name: input.fullName,
             email: input.email,
             company: input.company,
-            message: 'Solicitud de auditoría técnica',
             source: 'lp-003',
           })
         } catch (error) {
@@ -62,15 +66,16 @@ export const leadRouter = router({
   captureIaOperativa: publicProcedure
     .input(captureIaOperativaSchema)
     .mutation(async ({ input }) => {
+      if (input.website) return { success: true }
+
       if (convex) {
         try {
-          await convex.mutation(api.contacts.create, {
+          await convex.mutation(api.leads.create, {
             name: input.fullName,
             email: input.email,
             company: input.company,
-            position: input.role,
-            message: input.processDescription ?? 'Solicitud desde LP-001 IA Operativa',
             source: 'lp-001',
+            notes: input.processDescription,
           })
         } catch (error) {
           console.error('Failed to save ia-operativa lead to Convex:', error)
@@ -97,14 +102,14 @@ export const leadRouter = router({
   captureWhitePaper: publicProcedure
     .input(captureWhitePaperSchema)
     .mutation(async ({ input }) => {
+      if (input.website) return { success: true }
+
       if (convex) {
         try {
-          await convex.mutation(api.contacts.create, {
+          await convex.mutation(api.leads.create, {
             name: input.fullName,
             email: input.email,
             company: input.company,
-            position: input.role,
-            message: 'Descarga de white paper',
             source: 'lp-002',
           })
         } catch (error) {

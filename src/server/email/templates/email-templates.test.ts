@@ -25,7 +25,9 @@ describe('buildEmailHtml (base)', () => {
     expect(html).toContain('logo-email.png')
     expect(html).toContain('alt="Carbono14"')
     expect(html).toContain('carbono-14.net')
-    expect(html).toContain('{{{RESEND_UNSUBSCRIBE_URL}}}')
+    // TASK-A06: Resend placeholder replaced with static contact URL (interim fix)
+    expect(html).not.toContain('{{{RESEND_UNSUBSCRIBE_URL}}}')
+    expect(html).toContain('https://carbono-14.net/contacto')
     expect(html).toContain('Darse de baja')
   })
 

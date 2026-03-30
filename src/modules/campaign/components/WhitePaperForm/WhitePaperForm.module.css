@@ -38,6 +38,15 @@
   color: #555568;
 }
 
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
 .fields {
   display: flex;
   flex-direction: column;

@@ -16,6 +16,7 @@ export function WhitePaperForm() {
   const [formStarted, setFormStarted] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [fields, setFields] = useState({ fullName: '', email: '', company: '', role: '' })
+  const [honeypot, setHoneypot] = useState('')
 
   const mutation = trpc.lead.captureWhitePaper.useMutation({
     onSuccess: () => {
@@ -49,6 +50,10 @@ export function WhitePaperForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    if (honeypot) {
+      router.push('/white-paper/gracias')
+      return
+    }
     const errs = validate()
     if (Object.keys(errs).length > 0) {
       setErrors(errs)
@@ -75,6 +80,17 @@ export function WhitePaperForm() {
 
       <form onSubmit={handleSubmit} noValidate>
         <input type="hidden" name="lp_id" value="LP-002" />
+        {/* Honeypot field — hidden from humans, bots fill it */}
+        <div className={styles.honeypot} aria-hidden="true">
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+          />
+        </div>
         <div className={styles.fields}>
           <div className={styles.formGroup}>
             <label className={styles.label} htmlFor="full_name_002">

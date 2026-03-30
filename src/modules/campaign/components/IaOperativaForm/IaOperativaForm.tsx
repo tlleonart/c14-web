@@ -33,6 +33,7 @@ export function IaOperativaForm() {
     industry: '',
     processDescription: '',
   })
+  const [honeypot, setHoneypot] = useState('')
 
   const mutation = trpc.lead.captureIaOperativa.useMutation({
     onSuccess: () => {
@@ -65,6 +66,10 @@ export function IaOperativaForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    if (honeypot) {
+      router.push('/ia-operativa/gracias')
+      return
+    }
     const errs = validate()
     if (Object.keys(errs).length > 0) {
       setErrors(errs)
@@ -84,6 +89,17 @@ export function IaOperativaForm() {
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <input type="hidden" name="lp_id" value="LP-001" />
+      {/* Honeypot field — hidden from humans, bots fill it */}
+      <div className={styles.honeypot} aria-hidden="true">
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+        />
+      </div>
 
       <div className={styles.formGroup}>
         <label className={styles.label} htmlFor="full_name_001">

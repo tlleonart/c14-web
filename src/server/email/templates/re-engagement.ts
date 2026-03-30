@@ -84,7 +84,9 @@ export function r3Html(calendlyUrl: string = DEFAULT_CALENDLY_URL): string {
     p('Hola,'),
     p('Este es el último correo que te enviamos antes de darte de baja de la lista de Carbono14.'),
     p('Si IA operativa ya no es relevante para tu empresa, o si simplemente preferís no recibir más correos nuestros, no hay ningún problema. Solo hacé click acá y no te escribimos más:'),
-    ctaLink('{{{RESEND_UNSUBSCRIBE_URL}}}', 'Darse de baja'),
+    // INTERIM FIX (TASK-A06): Resend placeholder only works in Broadcasts, not transactional API emails.
+    // TODO: replace with /api/unsubscribe?token=... endpoint for proper one-click unsubscribe
+    ctaLink('https://carbono-14.net/contacto', 'Darse de baja'),
     p('Si IA operativa sigue siendo algo que estás explorando pero el momento no es ahora, podemos coordinar 15 minutos cuando el timing sea mejor:'),
     ctaLink(calendlyUrl, 'Agendar 15 minutos'),
     p('Sin agenda de ventas. Solo una conversación.'),

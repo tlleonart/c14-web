@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react'
 import { marked } from 'marked'
+import DOMPurify from 'isomorphic-dompurify'
 import { trpc } from '@/trpc/client'
 import { BlogCard } from './BlogCard'
 import type { BlogPost } from '../types'
@@ -44,7 +45,7 @@ export function BlogArticle({ slug }: BlogArticleProps) {
     if (!rawPost?.body) return ''
     try {
       const result = marked.parse(rawPost.body, { async: false })
-      return typeof result === 'string' ? result : ''
+      return typeof result === 'string' ? DOMPurify.sanitize(result) : ''
     } catch {
       return ''
     }
