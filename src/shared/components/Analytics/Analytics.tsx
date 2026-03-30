@@ -7,25 +7,40 @@ declare global {
   }
 }
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID
-
-export function Analytics() {
-  if (!GA_MEASUREMENT_ID) return null
+export function GtmScript() {
+  const containerId = process.env.NEXT_PUBLIC_GTM_CONTAINER_ID
+  if (!containerId) return null
 
   return (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="ga4-config" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}');
-        `}
-      </Script>
-    </>
+    <Script id="gtm-script" strategy="afterInteractive">
+      {`
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','${containerId}');
+      `}
+    </Script>
   )
+}
+
+export function GtmNoScript() {
+  const containerId = process.env.NEXT_PUBLIC_GTM_CONTAINER_ID
+  if (!containerId) return null
+
+  return (
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${containerId}`}
+        height="0"
+        width="0"
+        style={{ display: 'none', visibility: 'hidden' }}
+      />
+    </noscript>
+  )
+}
+
+/** @deprecated Use GtmScript instead — GTM now manages GA4 */
+export function Analytics() {
+  return <GtmScript />
 }
