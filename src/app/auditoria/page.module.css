@@ -1,0 +1,256 @@
+/* =========================================
+   LP-003 /auditoria
+   ========================================= */
+
+/* HERO */
+.hero {
+  background: var(--bg-dark);
+  padding: 80px 48px 96px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.labelPill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  border: 1px solid rgba(212, 64, 48, 0.3);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 24px;
+}
+
+.heroH1 {
+  font-family: var(--font-body);
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--text-on-dark);
+  letter-spacing: -0.03em;
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+
+.heroSub {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-on-dark-muted);
+  line-height: 1.65;
+  max-width: 480px;
+}
+
+.trustList {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-on-dark-muted);
+}
+
+/* AUDIT INCLUDES */
+.auditIncludes {
+  background: var(--bg-dark-2);
+  padding: 72px 48px;
+}
+
+.sectionNarrow {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: var(--font-body);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-on-dark);
+  margin-bottom: 40px;
+}
+
+.includesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.includesItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.includesItemTitle {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-on-dark);
+  margin-bottom: 4px;
+}
+
+.includesItemDesc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-on-dark-muted);
+  line-height: 1.65;
+}
+
+.callout {
+  margin-top: 32px;
+  padding: 16px 20px;
+  background: rgba(255, 138, 122, 0.08);
+  border-left: 3px solid var(--coral);
+  border-radius: 0 8px 8px 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--coral);
+  line-height: 1.5;
+}
+
+/* WHAT WE DO NOT DO */
+.noSection {
+  background: var(--bg-dark);
+  padding: 72px 48px;
+}
+
+.noBody {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-on-dark-muted);
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* TRUST BLOCK */
+.trustBlock {
+  background: var(--bg-dark-2);
+  padding: 64px 48px;
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.trustStat {
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.trustStatNumber {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--coral);
+  line-height: 1;
+}
+
+.trustStatGreen {
+  color: var(--success);
+}
+
+.trustStatDesc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-on-dark-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE — TABLET 768px
+   ========================================= */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 24px 72px;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .heroH1 {
+    font-size: 32px;
+    max-width: 100%;
+  }
+
+  .heroSub {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .auditIncludes,
+  .noSection,
+  .trustBlock {
+    padding: 56px 24px;
+  }
+
+  .trustGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — MOBILE 480px
+   ========================================= */
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 20px 56px;
+  }
+
+  .heroH1 {
+    font-size: 28px;
+    letter-spacing: -0.02em;
+  }
+
+  .heroSub {
+    font-size: 15px;
+  }
+
+  .auditIncludes,
+  .noSection,
+  .trustBlock {
+    padding: 48px 20px;
+  }
+}

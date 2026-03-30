@@ -5,6 +5,21 @@ import { sendWhitePaperEmail } from '@/server/email/sendWhitePaperEmail'
 import { convex } from '@/server/convex/client'
 import { api } from '../../../../convex/_generated/api'
 
+const captureAuditoriaSchema = z.object({
+  fullName: z.string().min(2, 'El nombre es obligatorio'),
+  email: z.string().email('Email inválido'),
+  company: z.string().min(1, 'La empresa es obligatoria'),
+})
+
+const captureIaOperativaSchema = z.object({
+  fullName: z.string().min(2, 'El nombre es obligatorio'),
+  email: z.string().email('Email inválido'),
+  company: z.string().min(1, 'La empresa es obligatoria'),
+  role: z.string().optional(),
+  industry: z.string().optional(),
+  processDescription: z.string().max(500).optional(),
+})
+
 const captureWhitePaperSchema = z.object({
   fullName: z.string().min(2, 'El nombre es obligatorio'),
   email: z.string().email('Email inválido'),
@@ -13,6 +28,72 @@ const captureWhitePaperSchema = z.object({
 })
 
 export const leadRouter = router({
+  captureAuditoria: publicProcedure
+    .input(captureAuditoriaSchema)
+    .mutation(async ({ input }) => {
+      if (convex) {
+        try {
+          await convex.mutation(api.contacts.create, {
+            name: input.fullName,
+            email: input.email,
+            company: input.company,
+            message: 'Solicitud de auditoría técnica',
+            source: 'lp-003',
+          })
+        } catch (error) {
+          console.error('Failed to save auditoria lead to Convex:', error)
+        }
+      }
+
+      const emailSent = await sendLeadNotificationEmail({
+        fullName: input.fullName,
+        email: input.email,
+        company: input.company,
+        source: 'LP-003',
+      })
+
+      if (!emailSent) {
+        console.warn('Lead notification email failed, but lead may still be saved')
+      }
+
+      return { success: true }
+    }),
+
+  captureIaOperativa: publicProcedure
+    .input(captureIaOperativaSchema)
+    .mutation(async ({ input }) => {
+      if (convex) {
+        try {
+          await convex.mutation(api.contacts.create, {
+            name: input.fullName,
+            email: input.email,
+            company: input.company,
+            position: input.role,
+            message: input.processDescription ?? 'Solicitud desde LP-001 IA Operativa',
+            source: 'lp-001',
+          })
+        } catch (error) {
+          console.error('Failed to save ia-operativa lead to Convex:', error)
+        }
+      }
+
+      const emailSent = await sendLeadNotificationEmail({
+        fullName: input.fullName,
+        email: input.email,
+        company: input.company,
+        role: input.role,
+        industry: input.industry,
+        processDescription: input.processDescription,
+        source: 'LP-001',
+      })
+
+      if (!emailSent) {
+        console.warn('Lead notification email failed, but lead may still be saved')
+      }
+
+      return { success: true }
+    }),
+
   captureWhitePaper: publicProcedure
     .input(captureWhitePaperSchema)
     .mutation(async ({ input }) => {
