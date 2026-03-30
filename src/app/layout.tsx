@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
-import { Analytics, GtmNoScript } from '@/shared/components/Analytics'
+import { Analytics } from '@/shared/components/Analytics'
 import { Providers } from './providers'
 import './globals.css'
 
@@ -95,7 +95,6 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body>
-        <GtmNoScript />
         <a href="#main-content" className="skip-nav">Saltar al contenido</a>
         <Providers>{children}</Providers>
       </body>
